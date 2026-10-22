@@ -83,7 +83,7 @@ p{margin:0}
 .calc .miolo > *{min-width:0}
 .painel{background:var(--superficie);border:1px solid var(--linha);padding:22px 20px}
 .painel h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:26px;line-height:1}
-.presets{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:14px calc(-1 * 20px) 0;padding:0 20px 4px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .presets::-webkit-scrollbar{display:none}
 .chip{flex:none;min-height:42px;padding:8px 16px;border:1px solid var(--linha);border-radius:99px;background:var(--fundo);color:var(--tinta);font:inherit;font-size:13.5px;font-weight:400;cursor:pointer;white-space:nowrap}
 .chip:hover{border-color:var(--fio-ouro)}
@@ -201,6 +201,7 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
 .cta li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:14px 0;border-bottom:1px solid var(--linha-escura);font-size:15px}
 .cta li::before{content:"";width:10px;height:10px;background:var(--ouro);margin-top:8px}
 .cta .acoes{display:grid;gap:12px}
+.cta .miolo-aviso{padding-block:0;display:block}
 .aviso{font-size:12px;color:var(--cinza-post);line-height:1.6;border-top:1px solid var(--linha-escura);padding-block:28px 40px}
 
 @media (min-width:560px){
@@ -213,7 +214,6 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
 @media (min-width:760px){
   .abre .miolo{padding-block:72px 64px;display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:end}
   .painel,.resultado,.grafico,.compar{padding:28px}
-  .presets{margin-inline:-28px;padding-inline:28px}
   .cards{grid-template-columns:repeat(3,1fr)}
   .cta .miolo{grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 }
@@ -222,9 +222,10 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
   .calc .painel{position:sticky;top:calc(var(--topo) + env(safe-area-inset-top,0px) + 20px)}
   .calc .saidas{display:grid;gap:20px}
   .licoes-grid{grid-template-columns:repeat(4,1fr)}
-  .presets{flex-wrap:wrap;overflow:visible}
 }
-@media (max-width:959px){.calc .saidas{display:grid;gap:20px}}
+.calc .saidas{display:grid;gap:20px;min-width:0}
+.calc .saidas > *,.licoes-grid > *,.cards > *,.campos > *,.taxas-grid > *{min-width:0}
+.painel{min-width:0;overflow:hidden}
 
 /* ===== Movimento: entrada no scroll ===== */
 .anim .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -421,7 +422,7 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
       </div>
     </div>
   </div>
-  <div class="miolo">
+  <div class="miolo miolo-aviso">
     <p class="aviso">Simulação educativa com taxas constantes e imposto calculado de forma simplificada no prazo total. Não considera inflação, IOF, taxas de administração ou variação de mercado. Rentabilidade passada não garante rentabilidade futura. Não é recomendação de investimento. Conteúdo sujeito à validação do compliance.</p>
   </div>
 </section>
