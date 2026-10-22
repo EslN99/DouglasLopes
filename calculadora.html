@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora Douglas Lopes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500&family=Poppins:wght@300;400;500;700&display=swap">
+<style>
+/* Layout mobile first: presets, entradas, resultado e gráfico em coluna; a partir de 960px entradas fixas à esquerda e resultados à direita */
+:root{
+  --preto:#0B0B0A; --marfim:#F4F1EA; --ouro:#EBBE03; --ouro-claro:#F7E08A; --cinza-post:#9A968D; --grafite-escuro:#151513; --linha-escura:#2A2925;
+  --fundo:#F4F1EA; --superficie:#FFFFFF; --tinta:#0B0B0A; --grafite:#4A4740; --linha:#D9D4C7; --destaque:#EBBE03; --destaque-texto:#7A6200; --fio-ouro:#A88600;
+  --s-voce:#A88600; --s-cdb:#0B0B0A; --s-tesouro:#5C5043; --s-poup:#948D80; --s-investido:#4A4740; --grid:#ECE8DE;
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --manuscrito:"Caveat","Comic Sans MS",cursive;
+  --max:1180px; --topo:64px;
+  --gl:max(20px, env(safe-area-inset-left, 0px));
+  --gr:max(20px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --fundo:#0B0B0A; --superficie:#151513; --tinta:#F4F1EA; --grafite:#A7A399; --linha:#2A2925; --destaque-texto:#EBBE03; --fio-ouro:#EBBE03;
+  --s-voce:#EBBE03; --s-cdb:#F4F1EA; --s-tesouro:#A39784; --s-poup:#6E6A62; --s-investido:#A7A399; --grid:#22211E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --fundo:#0B0B0A; --superficie:#151513; --tinta:#F4F1EA; --grafite:#A7A399; --linha:#2A2925; --destaque-texto:#EBBE03; --fio-ouro:#EBBE03;
+  --s-voce:#EBBE03; --s-cdb:#F4F1EA; --s-tesouro:#A39784; --s-poup:#6E6A62; --s-investido:#A7A399; --grid:#22211E; color-scheme:dark}
+
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-size:16px;line-height:1.6;font-weight:300}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--preto)}
+[hidden]{display:none!important}
+img{max-width:100%}
+a{color:inherit}
+p{margin:0}
+:focus-visible{outline:2px solid var(--destaque);outline-offset:3px}
+.faixa{padding-left:var(--gl);padding-right:var(--gr)}
+.miolo{max-width:var(--max);margin-inline:auto}
+.escura{background:var(--preto);color:var(--marfim)}
+
+.rotulo{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:12px;color:var(--destaque-texto)}
+.escura .rotulo{color:var(--ouro)}
+.rotulo::before{content:"";width:28px;height:1.5px;background:currentColor;flex:none}
+.titulo{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.94;font-size:clamp(40px,9.6vw,80px);margin:16px 0 0;text-wrap:balance}
+.titulo em{font-style:normal;color:var(--destaque-texto)}
+.escura .titulo em{color:var(--ouro)}
+.apoio{color:var(--grafite);max-width:58ch}
+.escura .apoio{color:var(--cinza-post)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;font-family:var(--sans);font-weight:500;font-size:15px;text-decoration:none;padding:14px 22px;border-radius:2px;border:1px solid transparent;cursor:pointer;background:none;color:inherit}
+.btn-ouro{background:var(--ouro);color:var(--preto)}
+.btn-ouro:hover{background:var(--ouro-claro)}
+.btn-linha{border-color:currentColor}
+.btn-linha:hover{border-color:var(--ouro);color:var(--ouro)}
+.seta{display:inline-block;width:20px;height:1.5px;background:currentColor;position:relative;flex:none}
+.seta::after{content:"";position:absolute;right:0;top:-3.5px;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+.seta.volta{transform:scaleX(-1)}
+
+/* Cabeçalho */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--preto);color:var(--marfim);border-bottom:1px solid var(--linha-escura)}
+.topo .in{height:var(--topo);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.mono{position:relative;width:38px;height:38px;flex:none;display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.mono::before,.mono::after{content:"";position:absolute;width:11px;height:11px;border:2px solid var(--ouro)}
+.mono::before{top:0;left:0;border-right:0;border-bottom:0}
+.mono::after{bottom:0;right:0;border-left:0;border-top:0}
+.marca-txt{font-family:var(--display);font-size:19px;letter-spacing:.04em;line-height:1;white-space:nowrap}
+.voltar{display:inline-flex;align-items:center;gap:10px;min-height:48px;font-size:14px;text-decoration:none;color:var(--cinza-post)}
+.voltar:hover{color:var(--marfim)}
+.voltar .txt-longo{display:none}
+
+/* Abertura */
+.abre .miolo{padding-block:44px 48px}
+.abre .apoio{margin-top:18px}
+
+/* Calculadora */
+.calc{padding-block:32px 56px}
+.calc .miolo{display:grid;gap:20px}
+.calc .miolo > *{min-width:0}
+.painel{background:var(--superficie);border:1px solid var(--linha);padding:22px 20px}
+.painel h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:26px;line-height:1}
+.presets{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:14px calc(-1 * 20px) 0;padding:0 20px 4px}
+.presets::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:42px;padding:8px 16px;border:1px solid var(--linha);border-radius:99px;background:var(--fundo);color:var(--tinta);font:inherit;font-size:13.5px;font-weight:400;cursor:pointer;white-space:nowrap}
+.chip:hover{border-color:var(--fio-ouro)}
+.chip[aria-pressed="true"]{background:var(--tinta);color:var(--fundo);border-color:var(--tinta)}
+.campos{display:grid;gap:20px;margin-top:22px}
+.campo-g label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;font-weight:500}
+.campo-g label output{font-family:var(--display);font-size:22px;font-weight:400;font-variant-numeric:tabular-nums;color:var(--tinta)}
+.dica{font-size:12.5px;color:var(--grafite);margin-top:6px}
+.moeda{display:flex;align-items:center;border:1px solid var(--linha);border-radius:2px;margin-top:8px;background:var(--fundo);min-height:54px}
+.moeda span{padding-left:14px;color:var(--grafite)}
+.moeda input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:19px;font-weight:500;padding:12px 14px 12px 8px;color:var(--tinta);font-variant-numeric:tabular-nums}
+.moeda input:focus{outline:none}
+.moeda:focus-within{border-color:var(--fio-ouro);box-shadow:0 0 0 1px var(--fio-ouro)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;background:transparent;margin-top:6px;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:linear-gradient(to right,var(--fio-ouro) var(--p,50%),var(--linha) var(--p,50%))}
+input[type=range]::-moz-range-track{height:3px;background:var(--linha)}
+input[type=range]::-moz-range-progress{height:3px;background:var(--fio-ouro)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-11.5px;background:var(--ouro);border:2px solid var(--preto);border-radius:2px}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--ouro);border:2px solid var(--preto);border-radius:2px}
+.escala{display:flex;justify-content:space-between;font-size:11.5px;color:var(--grafite);font-variant-numeric:tabular-nums}
+.chave{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px solid var(--linha);font-size:14px}
+.chave b{font-weight:500;display:block}
+.chave small{color:var(--grafite);font-size:12.5px}
+.switch{position:relative;width:52px;height:30px;flex:none}
+.switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.switch span{position:absolute;inset:0;border:1px solid var(--linha);background:var(--fundo);border-radius:99px;transition:background .2s}
+.switch span::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--grafite);transition:transform .2s,background .2s}
+.switch input:checked + span{background:var(--tinta);border-color:var(--tinta)}
+.switch input:checked + span::after{transform:translateX(22px);background:var(--ouro)}
+.switch input:focus-visible + span{outline:2px solid var(--destaque);outline-offset:3px}
+.taxas{border-top:1px solid var(--linha);padding-top:4px}
+.taxas summary{list-style:none;cursor:pointer;min-height:48px;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:500}
+.taxas summary::-webkit-details-marker{display:none}
+.taxas summary::after{content:"+";font-family:var(--display);font-size:24px;color:var(--destaque-texto);transition:transform .2s}
+.taxas[open] summary::after{transform:rotate(45deg)}
+.taxas-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-bottom:8px}
+.taxas-grid label{display:grid;gap:6px;font-size:12.5px;font-weight:500;color:var(--grafite)}
+.taxas-grid input{font:inherit;font-size:16px;font-weight:500;color:var(--tinta);background:var(--fundo);border:1px solid var(--linha);border-radius:2px;padding:10px 12px;width:100%;min-height:46px;font-variant-numeric:tabular-nums}
+.taxas-grid input:focus{outline:none;border-color:var(--fio-ouro)}
+.taxas p{font-size:12px;color:var(--grafite);padding-bottom:12px;line-height:1.5}
+
+/* Resultado principal */
+.resultado{background:var(--preto);color:var(--marfim);padding:24px 20px;border:1px solid var(--linha-escura)}
+.resultado .r-rot{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro)}
+.resultado .r-num{font-family:var(--display);font-size:clamp(46px,13vw,84px);line-height:1;margin-top:8px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.resultado .r-sub{color:var(--cinza-post);font-size:14px;margin-top:8px}
+.barra-comp{display:flex;height:12px;margin-top:22px;gap:2px}
+.barra-comp i{display:block;height:100%}
+.barra-comp .inv{background:var(--cinza-post)}
+.barra-comp .jur{background:var(--ouro);flex:1}
+.r-partes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.r-partes div{display:grid;gap:2px;font-size:13px;color:var(--cinza-post)}
+.r-partes b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--marfim);font-variant-numeric:tabular-nums}
+.r-partes span::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px}
+.r-partes .p-inv span::before{background:var(--cinza-post)}
+.r-partes .p-jur span::before{background:var(--ouro)}
+
+/* Gráfico */
+.grafico{background:var(--superficie);border:1px solid var(--linha);padding:22px 20px}
+.g-cab{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.legenda{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px}
+.legenda li{display:flex;align-items:center;gap:8px}
+.legenda svg{width:26px;height:10px;flex:none}
+.chart-box{position:relative;margin-top:16px;touch-action:pan-y}
+.chart-box svg{display:block;width:100%;overflow:visible}
+.chart-box text{font-family:var(--sans);font-size:11px;fill:var(--grafite);font-variant-numeric:tabular-nums}
+.tip{position:absolute;top:0;pointer-events:none;background:var(--superficie);border:1px solid var(--linha);padding:10px 12px;font-size:12.5px;min-width:180px;z-index:2}
+.tip b{display:block;font-weight:700;margin-bottom:4px}
+.tip div{display:flex;justify-content:space-between;gap:16px;font-variant-numeric:tabular-nums}
+.tip i{display:inline-block;width:10px;height:2px;margin-right:6px;vertical-align:3px}
+.tabela{margin-top:14px;border-top:1px solid var(--linha)}
+.tabela summary{list-style:none;cursor:pointer;min-height:48px;display:flex;align-items:center;font-size:14px;font-weight:500;gap:8px}
+.tabela summary::-webkit-details-marker{display:none}
+.tabela summary::after{content:"+";font-family:var(--display);font-size:22px;color:var(--destaque-texto);margin-left:auto}
+.tabela summary::after{transition:transform .2s}.tabela[open] summary::after{transform:rotate(45deg)}
+.t-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums;min-width:520px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--linha);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:500;font-size:12px;color:var(--grafite)}
+
+/* Comparação */
+.compar{background:var(--superficie);border:1px solid var(--linha);padding:22px 20px}
+.ranking{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+.ranking li{display:grid;gap:6px}
+.rk-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14.5px}
+.rk-top b{font-weight:500}
+.rk-top span{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.rk-bar{height:10px;background:var(--grid)}
+.rk-bar i{display:block;height:100%;border-radius:0 2px 2px 0;transition:width .35s}
+.rk-info{font-size:12.5px;color:var(--grafite)}
+
+/* Lições */
+.licoes .miolo{padding-block:56px}
+.licoes-grid{display:grid;gap:12px;margin-top:28px}
+.licao{border:1px solid var(--linha-escura);padding:22px 20px;display:grid;gap:8px;align-content:start;background:var(--grafite-escuro)}
+.licao .l-n{font-family:var(--display);font-size:clamp(32px,8vw,42px);line-height:1;color:var(--ouro);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.licao h3{margin:0;font-size:17px;font-weight:700;line-height:1.35}
+.licao p{font-size:14.5px;color:var(--cinza-post)}
+
+/* Educação */
+.educa .miolo{padding-block:64px}
+.cards{display:grid;gap:12px;margin-top:32px}
+.card{background:var(--superficie);border:1px solid var(--linha);padding:24px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.card .c-tag{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--destaque-texto)}
+.card h3{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:26px;line-height:1}
+.card p{font-size:15px;color:var(--grafite)}
+.card.assessor{background:var(--preto);color:var(--marfim);border-color:var(--preto)}
+.card.assessor .c-tag{color:var(--ouro)}
+.card.assessor p{color:var(--cinza-post)}
+
+/* CTA */
+.cta .miolo{padding-block:64px;display:grid;gap:28px}
+.cta ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha-escura)}
+.cta li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:14px 0;border-bottom:1px solid var(--linha-escura);font-size:15px}
+.cta li::before{content:"";width:10px;height:10px;background:var(--ouro);margin-top:8px}
+.cta .acoes{display:grid;gap:12px}
+.aviso{font-size:12px;color:var(--cinza-post);line-height:1.6;border-top:1px solid var(--linha-escura);padding-block:28px 40px}
+
+@media (min-width:560px){
+  .voltar .txt-longo{display:inline}
+  .voltar .txt-curto{display:none}
+  .licoes-grid{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .cta .acoes{display:flex;flex-wrap:wrap}
+}
+@media (min-width:760px){
+  .abre .miolo{padding-block:72px 64px;display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:end}
+  .painel,.resultado,.grafico,.compar{padding:28px}
+  .presets{margin-inline:-28px;padding-inline:28px}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .cta .miolo{grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+}
+@media (min-width:960px){
+  .calc .miolo{grid-template-columns:400px 1fr;gap:24px;align-items:start}
+  .calc .painel{position:sticky;top:calc(var(--topo) + env(safe-area-inset-top,0px) + 20px)}
+  .calc .saidas{display:grid;gap:20px}
+  .licoes-grid{grid-template-columns:repeat(4,1fr)}
+  .presets{flex-wrap:wrap;overflow:visible}
+}
+@media (max-width:959px){.calc .saidas{display:grid;gap:20px}}
+
+/* ===== Movimento: entrada no scroll ===== */
+.anim .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.anim .rv.in{opacity:1;transform:none}
+.anim [data-st] > *{opacity:0;transform:translateY(24px);transition:opacity .6s ease calc(var(--i,0) * 90ms),transform .7s cubic-bezier(.2,.7,.2,1) calc(var(--i,0) * 90ms)}
+.anim [data-st].in > *{opacity:1;transform:none}
+.anim [data-st].done > *{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .25s,background-color .25s,background-size .4s,opacity .3s;transition-delay:0s}
+
+/* Ícones e marcadores surgem depois do texto */
+.anim [data-st] > li::before,.anim .rotina > div::before{transform:scale(0) rotate(-90deg);transition:transform .55s cubic-bezier(.3,1.6,.5,1) calc(var(--i,0) * 90ms + .25s)}
+.anim [data-st].in > li::before,.anim .rotina.in > div::before{transform:none}
+.anim [data-st] .num,.anim [data-st] .n,.anim [data-st] .l-n{display:inline-block;transform:translateY(60%);opacity:0;transition:transform .7s cubic-bezier(.2,.7,.2,1) calc(var(--i,0) * 90ms + .15s),opacity .5s ease calc(var(--i,0) * 90ms + .15s)}
+.anim [data-st].in .num,.anim [data-st].in .n,.anim [data-st].in .l-n{transform:none;opacity:1}
+.rotina::before{transform-origin:left top;transition:transform 1.4s cubic-bezier(.6,0,.2,1) .1s}
+.anim .rotina:not(.in)::before{transform:scaleY(0)}
+@media (min-width:960px){.anim .rotina:not(.in)::before{transform:scaleX(0)}}
+.anim .rotulo::before{transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.2,.7,.2,1) .2s}
+.anim .rv.in.rotulo::before,.anim .in .rotulo::before{transform:none}
+.anim .grade i{transform:scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1) calc(var(--i,0) * 60ms + .4s)}
+.anim .grade.in i{transform:none}
+
+/* ===== Movimento: mouse e clique ===== */
+.fx.fx{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .25s,background-size .4s;background-image:linear-gradient(var(--destaque),var(--destaque));background-repeat:no-repeat;background-position:0 0;background-size:0 3px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.fx-row{position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),color .2s;cursor:pointer;-webkit-tap-highlight-color:transparent}
+@media (hover:hover){
+  :root .fx.fx:hover{transform:translateY(-6px);border-color:var(--fio-ouro);background-size:100% 3px}
+  :root .fx-row:hover{transform:translateX(6px)}
+  :root .fx-row:hover h3,:root .fx-row:hover summary{color:var(--destaque-texto)}
+  .escura .fx-row:hover h3{color:var(--ouro)}
+  .ft img,.contato-foto img,.hero-foto img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .ft:hover img,.contato-foto:hover img{transform:scale(1.04)}
+}
+:root .fx.fx:active{transform:translateY(-2px) scale(.985);transition-duration:.12s}
+:root .fx-row:active{transform:translateX(3px) scale(.995);transition-duration:.12s}
+.fx.fx.toque{background-size:100% 3px;border-color:var(--fio-ouro)}
+.ripple{position:absolute;border-radius:50%;background:var(--destaque);opacity:.28;transform:scale(0);pointer-events:none;animation:ripple .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes ripple{to{transform:scale(1);opacity:0}}
+.ft,.contato-foto{overflow:hidden}
+.btn{transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:active{transform:scale(.97)}
+.btn .seta{transition:transform .25s}
+@media (hover:hover){.btn:hover .seta:not(.volta){transform:translateX(4px)}}
+@media (prefers-reduced-motion: reduce){.fx.fx,.fx-row{transition:none}.ripple{display:none}}
+</style>
+</head>
+<body>
+
+<header class="topo faixa">
+  <div class="in miolo">
+    <a class="marca" href="./" aria-label="Douglas Lopes, página inicial"><span class="mono">DL</span><span class="marca-txt">DOUGLAS LOPES</span></a>
+    <a class="voltar" href="./"><i class="seta volta"></i><span class="txt-longo">Voltar ao site</span><span class="txt-curto">Voltar</span></a>
+  </div>
+</header>
+
+<main>
+<section class="abre escura faixa">
+  <div class="miolo">
+    <div>
+      <div class="rotulo">Calculadora de patrimônio</div>
+      <h1 class="titulo">Brinque com <em>os números</em>.</h1>
+    </div>
+    <p class="apoio">Mude o prazo, o aporte e o retorno. Veja o efeito do tempo, dos juros compostos e do imposto, lado a lado com CDB, Tesouro Selic e poupança.</p>
+  </div>
+</section>
+
+<section class="calc faixa" aria-label="Calculadora">
+  <div class="miolo">
+    <form class="painel" id="calc" novalidate>
+      <h2>Monte sua simulação</h2>
+      <div class="presets" role="group" aria-label="Exemplos prontos">
+        <button type="button" class="chip" data-p="0,500,35,12">Começar cedo</button>
+        <button type="button" class="chip" data-p="10000,3000,25,12">Recém formado</button>
+        <button type="button" class="chip" data-p="500000,0,15,12">Herança</button>
+        <button type="button" class="chip" data-p="100000,2000,20,12">Aposentadoria</button>
+      </div>
+      <div class="campos">
+        <div class="campo-g">
+          <label for="inicial">Investimento inicial</label>
+          <div class="moeda"><span>R$</span><input id="inicial" inputmode="numeric" autocomplete="off" value="50.000"></div>
+        </div>
+        <div class="campo-g">
+          <label for="aporte">Aporte mensal</label>
+          <div class="moeda"><span>R$</span><input id="aporte" inputmode="numeric" autocomplete="off" value="2.000"></div>
+        </div>
+        <div class="campo-g">
+          <label for="anos">Prazo <output id="anosOut" for="anos">20 anos</output></label>
+          <input type="range" id="anos" min="1" max="40" step="1" value="20">
+          <div class="escala"><span>1 ano</span><span>40 anos</span></div>
+        </div>
+        <div class="campo-g">
+          <label for="ret">Retorno esperado <output id="retOut" for="ret">12,0% a.a.</output></label>
+          <input type="range" id="ret" min="2" max="20" step="0.5" value="12">
+          <div class="escala"><span>2%</span><span>20% ao ano</span></div>
+          <p class="dica">Retorno bruto anual da sua carteira. É uma hipótese, não uma promessa.</p>
+        </div>
+        <div class="chave">
+          <div><b>Descontar imposto de renda</b><small>Tabela regressiva, no resgate. Poupança é isenta.</small></div>
+          <label class="switch"><input type="checkbox" id="ir" checked aria-label="Descontar imposto de renda"><span></span></label>
+        </div>
+        <details class="taxas">
+          <summary>Taxas de referência</summary>
+          <div class="taxas-grid">
+            <label for="tCdi">CDI % a.a.<input id="tCdi" inputmode="decimal" value="13,65"></label>
+            <label for="tCdb">CDB % do CDI<input id="tCdb" inputmode="decimal" value="100"></label>
+            <label for="tSelic">Tesouro Selic % a.a.<input id="tSelic" inputmode="decimal" value="13,75"></label>
+            <label for="tPoup">Poupança % a.a.<input id="tPoup" inputmode="decimal" value="6,17"></label>
+          </div>
+          <p>Base: Selic em 13,75% (Copom, setembro de 2026). Tesouro Selic com taxa de custódia de 0,20% a.a. Poupança em 0,5% ao mês, sem a TR. As taxas ficam constantes no prazo todo, o que na vida real não acontece.</p>
+        </details>
+      </div>
+    </form>
+
+    <div class="saidas">
+      <div class="resultado" aria-live="polite">
+        <div class="r-rot" id="rRot">Patrimônio em 20 anos</div>
+        <div class="r-num" id="rNum">R$ 0</div>
+        <p class="r-sub" id="rSub">Valor líquido, com o retorno esperado.</p>
+        <div class="barra-comp" aria-hidden="true"><i class="inv" id="bInv"></i><i class="jur"></i></div>
+        <div class="r-partes">
+          <div class="p-inv"><span>Você investiu</span><b id="rInv">R$ 0</b></div>
+          <div class="p-jur"><span>Juros trabalharam</span><b id="rJur">R$ 0</b></div>
+        </div>
+      </div>
+
+      <div class="grafico">
+        <div class="g-cab">
+          <div>
+            <div class="rotulo">Evolução ano a ano</div>
+          </div>
+        </div>
+        <ul class="legenda" id="legenda"></ul>
+        <div class="chart-box" id="chartBox">
+          <svg id="chart" role="img" aria-label="Gráfico da evolução do patrimônio por ano"></svg>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <details class="tabela">
+          <summary>Ver tabela ano a ano</summary>
+          <div class="t-wrap"><table id="tabela"></table></div>
+        </details>
+      </div>
+
+      <div class="compar">
+        <div class="rotulo">Comparação no fim do prazo</div>
+        <ol class="ranking" id="ranking"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="licoes escura faixa" aria-label="O que os números ensinam">
+  <div class="miolo">
+    <div class="rotulo">O que a sua simulação ensina</div>
+    <h2 class="titulo">Lições em <em>reais</em>.</h2>
+    <div class="licoes-grid">
+      <article class="licao"><div class="l-n" id="l1">R$ 0</div><h3>O custo de esperar 5 anos</h3><p id="l1t">Quanto você deixaria de ter começando depois.</p></article>
+      <article class="licao"><div class="l-n" id="l2">R$ 0</div><h3>1 ponto a mais por ano</h3><p id="l2t">Diferença de um ponto percentual no retorno anual.</p></article>
+      <article class="licao"><div class="l-n" id="l3">0%</div><h3>Parte que veio dos juros</h3><p id="l3t">O resto saiu do seu bolso.</p></article>
+      <article class="licao"><div class="l-n" id="l4">R$ 0</div><h3>Deixar na poupança</h3><p id="l4t">Diferença para o retorno esperado.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="educa faixa" aria-label="Educação financeira">
+  <div class="miolo">
+    <div class="rotulo">Educação financeira</div>
+    <h2 class="titulo">Boa decisão <em>vem antes</em> do bom produto.</h2>
+    <div class="cards">
+      <article class="card"><span class="c-tag">Juros compostos</span><h3>O tempo trabalha por você</h3><p>Juro sobre juro cresce devagar no começo e rápido no fim. Por isso começar cedo pesa mais que aportar muito tarde.</p></article>
+      <article class="card"><span class="c-tag">Inflação</span><h3>Dinheiro parado encolhe</h3><p>Se o rendimento perde para a inflação, o saldo sobe e o poder de compra cai. O que importa é o ganho real.</p></article>
+      <article class="card"><span class="c-tag">Imposto</span><h3>Olhe sempre o líquido</h3><p>Um título tributado pode render mais que um isento. A comparação certa é depois do imposto e no prazo certo.</p></article>
+      <article class="card"><span class="c-tag">Custos</span><h3>Taxa pequena, efeito grande</h3><p>Meio ponto ao ano parece pouco. Em 20 anos, vira uma fatia relevante do patrimônio.</p></article>
+      <article class="card"><span class="c-tag">Comportamento</span><h3>Cuidado com a manada</h3><p>Quando todo mundo está comprando, o preço costuma já refletir o otimismo. Constância vence a pressa.</p></article>
+      <article class="card assessor"><span class="c-tag">Assessoria</span><h3>Um plano, não um palpite</h3><p>A calculadora mostra o destino. O assessor ajuda a escolher o caminho, revisar a rota e evitar decisões por impulso.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta escura faixa">
+  <div class="miolo">
+    <div>
+      <div class="rotulo">Do simulador ao plano</div>
+      <h2 class="titulo">Seu número merece <em>um plano</em>.</h2>
+      <p class="apoio" style="margin-top:18px">Leve sua simulação para uma conversa. Eu mostro o que faz sentido para o seu prazo, seu imposto e seu momento.</p>
+    </div>
+    <div>
+      <ul>
+        <li>Diagnóstico completo da sua vida financeira</li>
+        <li>Carteira simples, com plataforma aberta</li>
+        <li>Acompanhamento mensal, trimestral e semestral</li>
+      </ul>
+      <div class="acoes" style="margin-top:24px">
+        <a class="btn btn-ouro" id="ctaZap" href="https://wa.me/5518000000000" target="_blank" rel="noopener">Conversar sobre minha simulação <i class="seta"></i></a>
+        <a class="btn btn-linha" href="./">Conhecer o trabalho</a>
+      </div>
+    </div>
+  </div>
+  <div class="miolo">
+    <p class="aviso">Simulação educativa com taxas constantes e imposto calculado de forma simplificada no prazo total. Não considera inflação, IOF, taxas de administração ou variação de mercado. Rentabilidade passada não garante rentabilidade futura. Não é recomendação de investimento. Conteúdo sujeito à validação do compliance.</p>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var NUM = "5518000000000";
+  var $ = function(id){ return document.getElementById(id); };
+  var brl0 = new Intl.NumberFormat("pt-BR",{maximumFractionDigits:0});
+  var pct1 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});
+  function R(v){ return "R$ " + brl0.format(Math.round(v)); }
+  function curto(v){
+    var a = Math.abs(v);
+    if (a >= 1e6) return "R$ " + new Intl.NumberFormat("pt-BR",{maximumFractionDigits:a>=1e7?0:1}).format(v/1e6) + " mi";
+    if (a >= 1e3) return "R$ " + brl0.format(v/1e3) + " mil";
+    return "R$ " + brl0.format(v);
+  }
+  function num(el){ return parseInt((el.value||"").replace(/\D/g,""),10) || 0; }
+  function dec(el){ var v = parseFloat(String(el.value).replace(/\./g,"").replace(",",".")); return isNaN(v) ? 0 : v; }
+
+  var SERIES = [
+    {k:"voce", nome:"Retorno esperado", cor:"--s-voce", dash:"", w:3},
+    {k:"cdb", nome:"CDB", cor:"--s-cdb", dash:"", w:2},
+    {k:"tesouro", nome:"Tesouro Selic", cor:"--s-tesouro", dash:"7 4", w:2},
+    {k:"poup", nome:"Poupança", cor:"--s-poup", dash:"2 4", w:2}
+  ];
+
+  function aliqIR(anos){ var d = anos*365; return d<=180?.225:d<=360?.20:d<=720?.175:.15; }
+
+  /* Saldo líquido ao fim de cada ano */
+  function simula(inicial, aporte, anos, taxaAA, tributa){
+    var i = Math.pow(1+taxaAA/100, 1/12) - 1, s = inicial, out = [inicial];
+    for (var m=1; m<=anos*12; m++){
+      s = s*(1+i) + aporte;
+      if (m % 12 === 0){
+        var t = m/12, inv = inicial + aporte*m, ganho = s - inv;
+        out.push(tributa && ganho > 0 ? s - ganho*aliqIR(t) : s);
+      }
+    }
+    return out;
+  }
+
+  function cor(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+  /* Legenda */
+  $("legenda").innerHTML = SERIES.map(function(s){
+    return '<li><svg viewBox="0 0 26 10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="var('+s.cor+')" stroke-width="'+s.w+'" stroke-dasharray="'+s.dash+'" stroke-linecap="round"/></svg>'+s.nome+'</li>';
+  }).join("") + '<li><svg viewBox="0 0 26 10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--s-investido)" stroke-width="1" stroke-dasharray="1 3"/></svg>Total investido</li>';
+
+  var estado = null;
+
+  function calcula(){
+    var inicial = num($("inicial")), aporte = num($("aporte")), anos = +$("anos").value, ret = +$("ret").value, ir = $("ir").checked;
+    var cdi = dec($("tCdi")), cdbPct = dec($("tCdb")), selic = dec($("tSelic")), poup = dec($("tPoup"));
+    var taxas = {voce:ret, cdb:cdi*cdbPct/100, tesouro:Math.max(selic-0.2,0), poup:poup};
+    var dados = {
+      voce: simula(inicial, aporte, anos, taxas.voce, ir),
+      cdb: simula(inicial, aporte, anos, taxas.cdb, ir),
+      tesouro: simula(inicial, aporte, anos, taxas.tesouro, ir),
+      poup: simula(inicial, aporte, anos, taxas.poup, false)
+    };
+    var investido = []; for (var t=0; t<=anos; t++) investido.push(inicial + aporte*12*t);
+    estado = {inicial:inicial, aporte:aporte, anos:anos, ret:ret, ir:ir, taxas:taxas, dados:dados, investido:investido};
+
+    /* Saídas de controle */
+    $("anosOut").textContent = anos + (anos===1?" ano":" anos");
+    $("retOut").textContent = pct1.format(ret) + "% a.a.";
+    [$("anos"),$("ret")].forEach(function(r){ r.style.setProperty("--p", ((r.value-r.min)/(r.max-r.min)*100)+"%"); });
+
+    /* Resultado principal */
+    var fim = dados.voce[anos], inv = investido[anos], jur = Math.max(fim-inv,0);
+    $("rRot").textContent = "Patrimônio em " + anos + (anos===1?" ano":" anos");
+    $("rNum").textContent = R(fim);
+    $("rSub").textContent = (ir ? "Valor líquido de IR" : "Valor bruto") + ", com retorno de " + pct1.format(ret) + "% ao ano.";
+    $("rInv").textContent = R(inv);
+    $("rJur").textContent = R(jur);
+    $("bInv").style.width = (fim>0 ? Math.min(inv/fim,1)*100 : 100) + "%";
+
+    /* Ranking */
+    var max = Math.max.apply(null, SERIES.map(function(s){ return dados[s.k][anos]; })) || 1;
+    var base = dados.poup[anos];
+    $("ranking").innerHTML = SERIES.map(function(s){
+      var v = dados[s.k][anos], dif = v - base;
+      var info = s.k==="poup" ? "Isenta de IR. " + pct1.format(taxas.poup) + "% a.a." :
+        pct1.format(taxas[s.k]) + "% a.a. " + (ir?"bruto, ":"") + (dif>=0 ? R(dif)+" a mais que a poupança" : R(-dif)+" a menos que a poupança");
+      return '<li><div class="rk-top"><b>'+s.nome+'</b><span>'+R(v)+'</span></div><div class="rk-bar"><i style="width:'+(v/max*100)+'%;background:var('+s.cor+')"></i></div><p class="rk-info">'+info+'</p></li>';
+    }).join("");
+
+    /* Tabela */
+    var linhas = '<thead><tr><th>Ano</th><th>Investido</th>' + SERIES.map(function(s){return '<th>'+s.nome+'</th>';}).join("") + '</tr></thead><tbody>';
+    for (var y=1; y<=anos; y++){
+      linhas += '<tr><td>'+y+'</td><td>'+R(investido[y])+'</td>' + SERIES.map(function(s){ return '<td>'+R(dados[s.k][y])+'</td>'; }).join("") + '</tr>';
+    }
+    $("tabela").innerHTML = linhas + '</tbody>';
+
+    /* Lições */
+    if (anos > 5){
+      var depois = simula(inicial, aporte, anos-5, ret, ir)[anos-5];
+      $("l1").textContent = R(fim - depois);
+      $("l1t").textContent = "A menos ao investir por " + (anos-5) + " anos em vez de " + anos + ". O tempo é o ingrediente mais caro.";
+    } else {
+      $("l1").textContent = "Prazo curto";
+      $("l1t").textContent = "Aumente o prazo para mais de 5 anos e veja quanto custa esperar.";
+    }
+    var mais1 = simula(inicial, aporte, anos, ret+1, ir)[anos];
+    $("l2").textContent = "+ " + R(mais1 - fim);
+    $("l2t").textContent = "Com " + pct1.format(ret+1) + "% em vez de " + pct1.format(ret) + "% ao ano. Custo e imposto mexem nesse ponto.";
+    $("l3").textContent = fim>0 ? Math.round(jur/fim*100) + "%" : "0%";
+    $("l3t").textContent = "Do patrimônio final veio dos juros. O restante, " + R(inv) + ", saiu do seu bolso.";
+    var dp = fim - base;
+    $("l4").textContent = (dp>=0?"":"+ ") + R(Math.abs(dp));
+    $("l4t").textContent = dp>=0 ? "É o que a poupança deixaria na mesa frente ao retorno esperado." : "A poupança venceria nesse cenário. Revise a hipótese de retorno.";
+
+    /* WhatsApp com a simulação */
+    var msg = "Olá, Douglas. Fiz uma simulação no site: inicial " + R(inicial) + ", aporte de " + R(aporte) + " por mês, " + anos + " anos, retorno de " + pct1.format(ret) + "% ao ano. Resultado: " + R(fim) + ". Quero conversar sobre um plano.";
+    $("ctaZap").href = "https://wa.me/" + NUM + "?text=" + encodeURIComponent(msg);
+
+    desenha();
+  }
+
+  /* Gráfico de linhas */
+  function ticks(max){
+    var bruto = max/4, p = Math.pow(10, Math.floor(Math.log10(bruto||1))), n = bruto/p;
+    var passo = (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p, out = [];
+    for (var v=0; v<=max+passo*0.001; v+=passo) out.push(v);
+    if (out[out.length-1] < max) out.push(out[out.length-1]+passo);
+    return out;
+  }
+  var geo = null;
+  function desenha(){
+    if (!estado) return;
+    var box = $("chartBox"), svg = $("chart");
+    var W = box.clientWidth || 600, H = W < 520 ? 260 : 340;
+    var m = {t:12, r: W<520 ? 12 : 16, b:28, l: W<520 ? 58 : 70};
+    var anos = estado.anos, d = estado.dados;
+    var max = 0; SERIES.forEach(function(s){ d[s.k].forEach(function(v){ if (v>max) max=v; }); });
+    var tk = ticks(max), yMax = tk[tk.length-1] || 1;
+    var x = function(t){ return m.l + (W-m.l-m.r) * (anos ? t/anos : 0); };
+    var y = function(v){ return m.t + (H-m.t-m.b) * (1 - v/yMax); };
+    geo = {W:W,H:H,m:m,x:x,y:y};
+    var s = '';
+    tk.forEach(function(v){
+      s += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--grid)" stroke-width="1"/>';
+      s += '<text x="'+(m.l-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+curto(v)+'</text>';
+    });
+    var passoX = anos<=10?1:anos<=20?5:10;
+    for (var t=0; t<=anos; t+=passoX){
+      s += '<text x="'+x(t)+'" y="'+(H-8)+'" text-anchor="middle">'+(t===0?"hoje":t+"a")+'</text>';
+    }
+    if (anos % passoX !== 0) s += '<text x="'+x(anos)+'" y="'+(H-8)+'" text-anchor="end">'+anos+'a</text>';
+    s += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="var(--linha)" stroke-width="1"/>';
+    var path = function(arr){ return arr.map(function(v,i){ return (i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1); }).join(""); };
+    s += '<path d="'+path(estado.investido)+'" fill="none" stroke="var(--s-investido)" stroke-width="1" stroke-dasharray="1 3"/>';
+    SERIES.slice().reverse().forEach(function(se){
+      s += '<path d="'+path(d[se.k])+'" fill="none" stroke="var('+se.cor+')" stroke-width="'+se.w+'" stroke-dasharray="'+se.dash+'" stroke-linecap="round" stroke-linejoin="round"/>';
+    });
+    var fx = x(anos), fy = y(d.voce[anos]);
+    s += '<circle cx="'+fx+'" cy="'+fy+'" r="5" fill="var(--s-voce)" stroke="var(--superficie)" stroke-width="2"/>';
+    s += '<g id="cross" visibility="hidden"><line id="cx" y1="'+m.t+'" y2="'+(H-m.b)+'" stroke="var(--grafite)" stroke-width="1"/>' +
+      SERIES.map(function(se){ return '<circle class="cp" data-k="'+se.k+'" r="4" fill="var('+se.cor+')" stroke="var(--superficie)" stroke-width="2"/>'; }).join("") + '</g>';
+    s += '<rect id="hit" x="'+m.l+'" y="0" width="'+(W-m.l-m.r)+'" height="'+H+'" fill="transparent"/>';
+    svg.setAttribute("viewBox","0 0 "+W+" "+H);
+    svg.setAttribute("height", H);
+    svg.innerHTML = s;
+    $("hit").addEventListener("pointermove", mostra);
+    $("hit").addEventListener("pointerdown", mostra);
+    $("hit").addEventListener("pointerleave", esconde);
+  }
+  function mostra(e){
+    var r = $("chart").getBoundingClientRect(), px = e.clientX - r.left, g = geo, anos = estado.anos;
+    var t = Math.round((px - g.m.l) / (g.W - g.m.l - g.m.r) * anos); t = Math.max(0, Math.min(anos, t));
+    var cx = g.x(t);
+    $("cross").setAttribute("visibility","visible");
+    $("cx").setAttribute("x1",cx); $("cx").setAttribute("x2",cx);
+    document.querySelectorAll(".cp").forEach(function(c){ c.setAttribute("cx",cx); c.setAttribute("cy", g.y(estado.dados[c.dataset.k][t])); });
+    var tip = $("tip");
+    tip.innerHTML = '<b>' + (t===0 ? "Hoje" : "Ano " + t) + '</b>' + SERIES.map(function(se){
+      return '<div><span><i style="background:var('+se.cor+')"></i>'+se.nome+'</span><span>'+R(estado.dados[se.k][t])+'</span></div>';
+    }).join("") + '<div><span>Investido</span><span>'+R(estado.investido[t])+'</span></div>';
+    tip.hidden = false;
+    var tw = tip.offsetWidth, left = cx + 14;
+    if (left + tw > g.W) left = cx - tw - 14;
+    tip.style.left = Math.max(0,left) + "px";
+  }
+  function esconde(){ var c = $("cross"); if (c) c.setAttribute("visibility","hidden"); $("tip").hidden = true; }
+
+  /* Eventos */
+  ["inicial","aporte"].forEach(function(id){
+    $(id).addEventListener("input", function(){
+      var d = this.value.replace(/\D/g,"").slice(0,10);
+      this.value = d ? brl0.format(parseInt(d,10)) : "";
+      limpaChips(); calcula();
+    });
+  });
+  ["anos","ret"].forEach(function(id){ $(id).addEventListener("input", function(){ limpaChips(); calcula(); }); });
+  ["ir","tCdi","tCdb","tSelic","tPoup"].forEach(function(id){ $(id).addEventListener("input", calcula); });
+  $("calc").addEventListener("submit", function(e){ e.preventDefault(); });
+
+  function limpaChips(){ document.querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed","false"); }); }
+  document.querySelectorAll(".chip").forEach(function(c){
+    c.setAttribute("aria-pressed","false");
+    c.addEventListener("click", function(){
+      var p = c.dataset.p.split(",").map(Number);
+      $("inicial").value = brl0.format(p[0]); $("aporte").value = brl0.format(p[1]);
+      $("anos").value = p[2]; $("ret").value = p[3];
+      calcula(); limpaChips(); c.setAttribute("aria-pressed","true");
+    });
+  });
+
+  if ("ResizeObserver" in window){ new ResizeObserver(function(){ desenha(); }).observe($("chartBox")); }
+  else window.addEventListener("resize", desenha);
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", desenha);
+
+  calcula();
+})();
+</script>
+<script>
+/* ===== Movimento ===== */
+(function(){
+  var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var RV = ".rotulo,.titulo,.apoio,.manchete,.acoes,.citacao,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso";
+  var ST = ".creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
+  var FX = ".creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
+  var FXROW = ".dores li,.temas > div,.faq details,.duvidas a,.trajeto li,.perfil li,.rotina > div";
+
+  document.querySelectorAll(FX).forEach(function(el){ el.classList.add("fx"); });
+  document.querySelectorAll(FXROW).forEach(function(el){ if(!el.classList.contains("fx")) el.classList.add("fx-row"); });
+
+  /* Ripple no clique */
+  document.addEventListener("pointerdown", function(e){
+    if (reduz) return;
+    var el = e.target.closest(".fx,.fx-row");
+    if (!el) return;
+    var r = el.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2.2;
+    var s = document.createElement("span");
+    s.className = "ripple";
+    s.style.width = s.style.height = d + "px";
+    s.style.left = (e.clientX - r.left - d/2) + "px";
+    s.style.top = (e.clientY - r.top - d/2) + "px";
+    el.appendChild(s);
+    if (el.classList.contains("fx")){
+      document.querySelectorAll(".fx.toque").forEach(function(o){ if(o!==el) o.classList.remove("toque"); });
+      el.classList.add("toque");
+    }
+    setTimeout(function(){ s.remove(); }, 750);
+  }, {passive:true});
+
+  if (reduz || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("anim");
+
+  var alvos = [];
+  document.querySelectorAll(ST).forEach(function(g){
+    g.setAttribute("data-st","");
+    Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty("--i", i); });
+    alvos.push(g);
+  });
+  document.querySelectorAll(RV).forEach(function(el){
+    if (el.closest("[data-st]") && el.closest("[data-st]") !== el) return;
+    el.classList.add("rv"); alvos.push(el);
+  });
+  document.querySelectorAll(".grade").forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty("--i", i); });
+    alvos.push(g);
+  });
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.add("in");
+      io.unobserve(el);
+      if (el.hasAttribute("data-st")){
+        var n = el.children.length;
+        setTimeout(function(){ el.classList.add("done"); }, 900 + n*90);
+        contar(el);
+      }
+    });
+  }, {threshold:0.12, rootMargin:"0px 0px -6% 0px"});
+  alvos.forEach(function(el){ io.observe(el); });
+
+  /* Números contam até o valor */
+  function contar(g){
+    g.querySelectorAll(".n").forEach(function(n){
+      var m = n.textContent.match(/^(\d+)(.*)$/);
+      if (!m) return;
+      var alvo = +m[1], resto = m[2], t0 = null;
+      function passo(t){
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / 1100, 1), e = 1 - Math.pow(1-p, 3);
+        n.textContent = Math.round(alvo*e) + resto;
+        if (p < 1) requestAnimationFrame(passo);
+      }
+      requestAnimationFrame(passo);
+    });
+  }
+
+  /* Segurança: nada fica escondido se o observador falhar */
+  window.addEventListener("load", function(){
+    setTimeout(function(){
+      alvos.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("in");
+      });
+    }, 1200);
+  });
+})();
+</script>
+</body>
+</html>

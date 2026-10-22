@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Links de Douglas Lopes, assessor de investimentos CFP.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Douglas Lopes Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;700&display=swap">
+<style>
+/* Layout: coluna de 440px; cabeçalho compacto com foto pequena ao lado do nome; quatro links logo abaixo; visual escuro fixo */
+:root{
+  --preto:#0B0B0A; --marfim:#F4F1EA; --ouro:#EBBE03; --ouro-claro:#F7E08A; --cinza:#9A968D; --sup:#151513; --sup-2:#1C1C19; --linha:#2A2925;
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--preto);color:var(--marfim);font-family:var(--sans);font-size:15px;line-height:1.5;font-weight:300;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+.col{max-width:440px;margin-inline:auto;padding-block:32px;display:grid;gap:24px}
+
+/* Cabeçalho */
+.topo{display:flex;align-items:center;gap:16px}
+.foto{position:relative;flex:none;width:76px;height:76px}
+.foto img{display:block;width:100%;height:100%;object-fit:cover}
+.foto::before,.foto::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--ouro)}
+.foto::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
+.foto::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
+.topo h1{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;letter-spacing:.01em}
+.topo p{font-size:13px;color:var(--cinza);margin-top:6px;line-height:1.4}
+
+/* Links */
+.links{display:grid;gap:10px}
+.lk{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:64px;padding:14px 18px;background:var(--sup);border:1px solid var(--linha);border-radius:2px;position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .2s,background .2s}
+.lk b{display:block;font-weight:500;font-size:15.5px;line-height:1.3}
+.lk small{display:block;font-size:12.5px;color:var(--cinza);margin-top:2px}
+.lk.principal{background:var(--ouro);border-color:var(--ouro);color:var(--preto)}
+.lk.principal small{color:#3A3500}
+.seta{flex:none;display:inline-block;width:18px;height:1.5px;background:currentColor;position:relative;transition:transform .25s}
+.seta::after{content:"";position:absolute;right:0;top:-3.5px;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+@media (hover:hover){
+  .lk:hover{transform:translateY(-2px);border-color:var(--ouro);background:var(--sup-2)}
+  .lk.principal:hover{background:var(--ouro-claro)}
+  .lk:hover .seta{transform:translateX(4px)}
+}
+.lk:active{transform:scale(.98)}
+
+.marca{display:flex;align-items:center;justify-content:center;gap:12px;padding-top:8px}
+.mono{position:relative;width:44px;height:44px;display:grid;place-items:center;font-family:var(--display);font-size:20px}
+.mono::before,.mono::after{content:"";position:absolute;width:13px;height:13px;border:2px solid var(--ouro)}
+.mono::before{top:0;left:0;border-right:0;border-bottom:0}
+.mono::after{bottom:0;right:0;border-left:0;border-top:0}
+.marca-txt{font-family:var(--display);font-size:22px;letter-spacing:.04em;line-height:1}
+.marca-txt small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.18em;color:var(--cinza);margin-top:5px;font-weight:400}
+.legal{font-size:11px;color:var(--cinza);line-height:1.6;padding-top:16px;border-top:1px solid var(--linha)}
+
+.ripple{position:absolute;border-radius:50%;background:var(--ouro);opacity:.25;transform:scale(0);pointer-events:none;animation:rp .7s cubic-bezier(.2,.7,.2,1) forwards}
+.principal .ripple{background:var(--preto);opacity:.15}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}.ripple{display:none}}
+</style>
+</head>
+<body>
+
+<main class="col">
+  <header class="topo">
+    <div class="foto"><img src="img/avatar.jpg" alt="Douglas Lopes" width="640" height="640"></div>
+    <div>
+      <h1>Douglas Lopes</h1>
+      <p>Assessor de investimentos e planejador CFP. Presidente Prudente (SP).</p>
+    </div>
+  </header>
+
+  <nav class="links" aria-label="Links">
+    <a class="lk principal" href="https://wa.me/5518000000000?text=Ol%C3%A1%2C%20Douglas.%20Vim%20pelo%20Instagram." target="_blank" rel="noopener">
+      <span><b>Falar no WhatsApp</b><small>Agende uma conversa sem compromisso</small></span><i class="seta"></i>
+    </a>
+    <a class="lk" href="../calculadora.html">
+      <span><b>Calculadora de patrimônio</b><small>Compare com CDB, Tesouro e poupança</small></span><i class="seta"></i>
+    </a>
+    <a class="lk" href="../#conteudo">
+      <span><b>PGBL: ainda dá tempo?</b><small>Simule o imposto que dá para adiar</small></span><i class="seta"></i>
+    </a>
+    <a class="lk" href="../">
+      <span><b>Conheça meu trabalho</b><small>Site completo</small></span><i class="seta"></i>
+    </a>
+  </nav>
+
+  <div class="marca" aria-label="Douglas Lopes">
+    <span class="mono" aria-hidden="true">DL</span>
+    <span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTOS · CFP</small></span>
+  </div>
+
+  <p class="legal">Assessor de investimentos credenciado, vinculado a escritório parceiro da XP Investimentos. Sem promessa de rentabilidade.</p>
+</main>
+
+<script>
+document.addEventListener("pointerdown", function(e){
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var el = e.target.closest(".lk");
+  if (!el) return;
+  var r = el.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2.2, s = document.createElement("span");
+  s.className = "ripple";
+  s.style.width = s.style.height = d + "px";
+  s.style.left = (e.clientX - r.left - d/2) + "px";
+  s.style.top = (e.clientY - r.top - d/2) + "px";
+  el.appendChild(s);
+  setTimeout(function(){ s.remove(); }, 750);
+}, {passive:true});
+</script>
+</body>
+</html>
