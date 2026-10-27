@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Links de Douglas Lopes, assessor de investimentos CFP.">
+<meta name="description" content="Links de Douglas Lopes, assessor de investimento CFP®.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Douglas Lopes Links</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,8 @@
 /* Layout: coluna de 440px; cabeçalho compacto com foto pequena ao lado do nome; quatro links logo abaixo; visual escuro fixo */
 :root{
   --preto:#0B0B0A; --marfim:#F4F1EA; --ouro:#EBBE03; --ouro-claro:#F7E08A; --cinza:#9A968D; --sup:#151513; --sup-2:#1C1C19; --linha:#2A2925;
-  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --marca:"Anton","Impact","Arial Narrow",sans-serif;
   --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
 }
@@ -31,7 +32,7 @@ p{margin:0}
 .foto::before,.foto::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--ouro)}
 .foto::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
 .foto::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
-.topo h1{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;letter-spacing:.01em}
+.topo h1{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.15;letter-spacing:-.02em}
 .topo p{font-size:13px;color:var(--cinza);margin-top:6px;line-height:1.4}
 
 /* Links */
@@ -51,11 +52,11 @@ p{margin:0}
 .lk:active{transform:scale(.98)}
 
 .marca{display:flex;align-items:center;justify-content:center;gap:12px;padding-top:8px}
-.mono{position:relative;width:44px;height:44px;display:grid;place-items:center;font-family:var(--display);font-size:20px}
+.mono{position:relative;width:44px;height:44px;display:grid;place-items:center;font-family:var(--marca);font-size:20px}
 .mono::before,.mono::after{content:"";position:absolute;width:13px;height:13px;border:2px solid var(--ouro)}
 .mono::before{top:0;left:0;border-right:0;border-bottom:0}
 .mono::after{bottom:0;right:0;border-left:0;border-top:0}
-.marca-txt{font-family:var(--display);font-size:22px;letter-spacing:.04em;line-height:1}
+.marca-txt{font-family:var(--marca);font-size:22px;letter-spacing:.04em;line-height:1}
 .marca-txt small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.18em;color:var(--cinza);margin-top:5px;font-weight:400}
 .legal{font-size:11px;color:var(--cinza);line-height:1.6;padding-top:16px;border-top:1px solid var(--linha)}
 
@@ -72,12 +73,12 @@ p{margin:0}
     <div class="foto"><img src="img/avatar.jpg" alt="Douglas Lopes" width="640" height="640"></div>
     <div>
       <h1>Douglas Lopes</h1>
-      <p>Assessor de investimentos e planejador CFP. Presidente Prudente (SP).</p>
+      <p>Assessor de investimento e planejador financeiro CFP®. Ello Investimentos, Presidente Prudente (SP).</p>
     </div>
   </header>
 
   <nav class="links" aria-label="Links">
-    <a class="lk principal" href="https://wa.me/5518000000000?text=Ol%C3%A1%2C%20Douglas.%20Vim%20pelo%20Instagram." target="_blank" rel="noopener">
+    <a class="lk principal" href="https://wa.me/5518996764001?text=Ol%C3%A1%2C%20Douglas.%20Vim%20pelo%20Instagram." target="_blank" rel="noopener">
       <span><b>Falar no WhatsApp</b><small>Agende uma conversa sem compromisso</small></span><i class="seta"></i>
     </a>
     <a class="lk" href="../calculadora.html">
@@ -93,10 +94,10 @@ p{margin:0}
 
   <div class="marca" aria-label="Douglas Lopes">
     <span class="mono" aria-hidden="true">DL</span>
-    <span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTOS · CFP</small></span>
+    <span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTO · CFP®</small></span>
   </div>
 
-  <p class="legal">Assessor de investimentos credenciado, vinculado a escritório parceiro da XP Investimentos. Sem promessa de rentabilidade.</p>
+  <p class="legal">Assessor de investimento vinculado à Ello Investimentos, contratada pela XP Investimentos CCTVM S.A., intermediário contratante (Resolução CVM 178). Ouvidoria XP em xpi.com.br. Sem promessa de rentabilidade.</p>
 </main>
 
 <script>

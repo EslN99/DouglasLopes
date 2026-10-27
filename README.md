@@ -18,9 +18,8 @@ Link da bio: `https://<usuario>.github.io/DouglasLopes/links/`
 
 ## Pendências
 
-* Número de WhatsApp: trocar `5518000000000` em todas as páginas.
-* Email de contato.
-* Logo definitivo (hoje é o monograma DL provisório).
-* Grafia do escritório: Elo ou Ello.
-* Texto legal validado pelo compliance.
+* Logo definitivo (hoje é o monograma DL provisório). Pela Resolução CVM 178, art. 24, §1º, logo próprio exige a XP identificada com no mínimo igual destaque.
+* Contato da ouvidoria da XP no rodapé (hoje aponta para xpi.com.br).
+* Página com a relação de assessores (Resolução CVM 178, art. 24, IV), se aplicável à Ello.
+* Texto legal validado pelo compliance da XP e da Ello.
 * Taxas da calculadora: revisar a cada reunião do Copom (base: Selic 13,75%, setembro de 2026).

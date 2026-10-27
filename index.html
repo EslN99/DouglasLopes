@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Douglas Lopes, assessor de investimentos e planejador financeiro CFP em Presidente Prudente (SP).">
+<meta name="description" content="Douglas Lopes, assessor de investimento e planejador financeiro CFP® em Presidente Prudente (SP).">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Douglas Lopes Assessoria</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,8 @@
 :root{
   --preto:#0B0B0A; --marfim:#F4F1EA; --ouro:#EBBE03; --ouro-claro:#F7E08A; --cinza-post:#9A968D; --grafite-escuro:#151513; --linha-escura:#2A2925;
   --fundo:#F4F1EA; --superficie:#FFFFFF; --tinta:#0B0B0A; --grafite:#4A4740; --linha:#D9D4C7; --destaque:#EBBE03; --destaque-texto:#7A6200; --fio-ouro:#A88600;
-  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --marca:"Anton","Impact","Arial Narrow",sans-serif;
   --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
   --manuscrito:"Caveat","Comic Sans MS",cursive;
   --max:1180px; --topo:64px; --barra:76px;
@@ -22,14 +23,11 @@
   --gr:max(20px, env(safe-area-inset-right, 0px));
   --bloco:clamp(64px,12vw,128px);
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --fundo:#0B0B0A; --superficie:#151513; --tinta:#F4F1EA; --grafite:#A7A399; --linha:#2A2925; --destaque-texto:#EBBE03; --fio-ouro:#EBBE03; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --fundo:#0B0B0A; --superficie:#151513; --tinta:#F4F1EA; --grafite:#A7A399; --linha:#2A2925; --destaque-texto:#EBBE03; --fio-ouro:#EBBE03; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+:root{color-scheme:light}
 body{background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:300;padding-bottom:calc(var(--barra) + env(safe-area-inset-bottom,0px))}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--preto)}
 img{display:block;max-width:100%;height:auto}
@@ -49,7 +47,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .rotulo{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:12px;color:var(--destaque-texto)}
 .escura .rotulo{color:var(--ouro)}
 .rotulo::before{content:"";width:28px;height:1.5px;background:currentColor;flex:none}
-.titulo{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.94;letter-spacing:.005em;font-size:clamp(40px,9.6vw,80px);margin:16px 0 0;text-wrap:balance}
+.titulo{font-family:var(--display);font-weight:500;line-height:1.12;letter-spacing:-.02em;font-size:clamp(29.6px,7.1vw,59.2px);margin:16px 0 0;text-wrap:balance}
 .titulo em{font-style:normal;color:var(--destaque-texto)}
 .escura .titulo em{color:var(--ouro)}
 .apoio{color:var(--grafite);max-width:58ch;font-size:16px}
@@ -78,11 +76,11 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--preto);color:var(--marfim);border-bottom:1px solid var(--linha-escura)}
 .topo .in{max-width:var(--max);margin-inline:auto;height:var(--topo);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
-.mono{position:relative;width:38px;height:38px;flex:none;display:grid;place-items:center;font-family:var(--display);font-size:17px}
+.mono{position:relative;width:38px;height:38px;flex:none;display:grid;place-items:center;font-family:var(--marca);font-size:17px}
 .mono::before,.mono::after{content:"";position:absolute;width:11px;height:11px;border:2px solid var(--ouro)}
 .mono::before{top:0;left:0;border-right:0;border-bottom:0}
 .mono::after{bottom:0;right:0;border-left:0;border-top:0}
-.marca-txt{font-family:var(--display);font-size:19px;letter-spacing:.04em;line-height:1;white-space:nowrap}
+.marca-txt{font-family:var(--marca);font-size:19px;letter-spacing:.04em;line-height:1;white-space:nowrap}
 .marca-txt small{display:none;font-family:var(--sans);font-size:10px;letter-spacing:.18em;color:var(--cinza-post);margin-top:5px;font-weight:400}
 .menu-btn{width:48px;height:48px;display:grid;place-items:center;background:transparent;border:1px solid var(--linha-escura);border-radius:2px;color:var(--marfim);cursor:pointer}
 .menu-btn span{display:block;width:20px;height:1.5px;background:currentColor;position:relative;transition:background .2s}
@@ -92,7 +90,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
 .menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
 .menu{position:fixed;left:0;right:0;top:calc(var(--topo) + env(safe-area-inset-top,0px));bottom:0;background:var(--preto);padding:24px var(--gr) 32px var(--gl);display:flex;flex-direction:column;overflow-y:auto}
-.menu a{display:flex;justify-content:space-between;align-items:center;min-height:60px;border-bottom:1px solid var(--linha-escura);font-family:var(--display);text-transform:uppercase;font-size:28px;letter-spacing:.01em;text-decoration:none;color:var(--marfim)}
+.menu a{display:flex;justify-content:space-between;align-items:center;min-height:60px;border-bottom:1px solid var(--linha-escura);font-family:var(--display);font-weight:500;font-size:20.7px;letter-spacing:-.02em;text-decoration:none;color:var(--marfim)}
 .menu a .seta{color:var(--ouro)}
 .menu .btn{margin-top:28px;font-family:var(--sans);text-transform:none;font-size:16px;border:0;justify-content:center;color:var(--preto)}
 .topo .cta-topo{display:none}
@@ -100,7 +98,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* Hero */
 .hero .miolo{display:grid;gap:36px;padding-block:44px 0}
 .hero-txt{min-width:0}
-.hero .titulo{font-size:clamp(50px,13.4vw,116px)}
+.hero .titulo{font-size:clamp(36px,8.6vw,72px)}
 .acoes{display:grid;gap:12px;margin-top:32px}
 .hero-foto{position:relative;margin-inline:calc(-1 * var(--gl)) calc(-1 * var(--gr))}
 .hero-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.06)}
@@ -111,8 +109,9 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .creds .miolo{padding-block:28px}
 .creds ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:20px 16px}
 .creds li{display:grid;gap:2px;padding-left:14px;border-left:2px solid var(--destaque);min-width:0}
-.creds .n{font-family:var(--display);font-size:32px;line-height:1}
-.creds .d{font-size:13px;color:var(--grafite);line-height:1.35}
+.creds .n{font-family:var(--display);font-weight:500;font-size:23.7px;line-height:1.12;letter-spacing:-.02em}
+.escura .creds .d{color:var(--cinza-post)}
+.creds .d{font-size:13px;font-weight:400;color:var(--grafite);line-height:1.35}
 
 /* Problema */
 .dores{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
@@ -126,7 +125,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .entrega{border:1px solid var(--linha);background:var(--fundo);display:grid;align-content:start}
 .e-nome{padding:20px 20px 16px;display:grid;gap:10px;justify-items:start}
 .e-quando{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--destaque-texto);border:1px solid var(--fio-ouro);border-radius:99px;padding:3px 10px}
-.e-nome h3{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:26px;line-height:1;transition:color .2s}
+.e-nome h3{margin:0;font-family:var(--display);font-weight:500;font-size:19.2px;line-height:1.12;transition:color .2s;letter-spacing:-.02em}
 .e-banco,.e-dl{padding:14px 20px;display:grid;gap:4px;border-top:1px solid var(--linha);min-width:0}
 .e-rot{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--grafite)}
 .e-banco p{font-size:14.5px;color:var(--grafite)}
@@ -162,8 +161,8 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* Método */
 .metodo{display:grid;border-top:1px solid var(--linha-escura)}
 .metodo article{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:26px 0;border-bottom:1px solid var(--linha-escura)}
-.metodo .num{font-family:var(--display);font-size:44px;line-height:.9;color:var(--ouro);grid-row:span 2}
-.metodo h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:28px;line-height:1;margin:0}
+.metodo .num{font-family:var(--display);font-weight:500;font-size:32.6px;line-height:1.12;color:var(--ouro);grid-row:span 2;letter-spacing:-.02em}
+.metodo h3{font-family:var(--display);font-weight:500;font-size:20.7px;line-height:1.12;margin:0;letter-spacing:-.02em}
 .metodo p{color:var(--cinza-post);font-size:15px}
 
 /* Rotina: linha vertical no celular */
@@ -172,7 +171,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .rotina > div{position:relative;min-width:0}
 .rotina > div::before{content:"";position:absolute;left:-32px;top:6px;width:13px;height:13px;background:var(--fundo);border:1px solid var(--fio-ouro)}
 .rotina > div:first-child::before{background:var(--destaque);border-color:var(--destaque)}
-.rotina .freq{font-family:var(--display);text-transform:uppercase;font-size:26px;line-height:1}
+.rotina .freq{font-family:var(--display);font-weight:500;font-size:19.2px;line-height:1.12;letter-spacing:-.02em}
 .rotina .o-que{font-weight:500;margin-top:6px}
 .rotina p{font-size:15px;color:var(--grafite);margin-top:4px}
 
@@ -180,7 +179,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .compara{display:grid;gap:12px}
 .compara > div{padding:26px 22px;border:1px solid var(--linha-escura);min-width:0}
 .compara .fee{background:var(--grafite-escuro);border-color:var(--ouro)}
-.compara h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:34px;line-height:1;margin:6px 0 0}
+.compara h3{font-family:var(--display);font-weight:500;font-size:25.2px;line-height:1.12;margin:6px 0 0;letter-spacing:-.02em}
 .compara .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-post)}
 .compara .fee .tag{color:var(--ouro)}
 .compara ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px}
@@ -209,7 +208,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .citacao::before{content:"\201C";position:absolute;left:0;top:-10px;font-family:var(--display);font-size:60px;line-height:1;color:var(--ouro)}
 .trajeto{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--linha-escura)}
 .trajeto li{display:grid;gap:2px;padding:14px 0;border-bottom:1px solid var(--linha-escura);font-size:15px}
-.trajeto b{font-family:var(--display);font-weight:400;font-size:20px;color:var(--ouro)}
+.trajeto b{font-family:var(--display);font-weight:600;font-size:17px;color:var(--ouro);letter-spacing:-.02em}
 .siglas{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .siglas span{font-size:12.5px;padding:7px 14px;border:1px solid #3A3833;border-radius:99px}
 .siglas abbr{text-decoration:none}
@@ -219,14 +218,14 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .conteudo-grid > *{min-width:0}
 .focus{background:var(--preto);color:var(--marfim);padding:24px 20px;display:grid;gap:20px;border:1px solid var(--linha-escura)}
 .focus-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
-.focus h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:34px;line-height:.95;margin:0}
+.focus h3{font-family:var(--display);font-weight:500;font-size:25.2px;line-height:1.12;margin:0;letter-spacing:-.02em}
 .focus .ex{font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ouro);color:var(--ouro);padding:4px 10px;border-radius:99px;white-space:nowrap}
 .focus dl{margin:0;border-top:1px solid var(--linha-escura)}
 .focus dl div{display:grid;gap:4px;padding:14px 0;border-bottom:1px solid var(--linha-escura)}
 .focus dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro)}
 .focus dd{margin:0;font-size:15px}
 .duvidas{border:1px solid var(--linha);background:var(--superficie);padding:24px 20px 8px}
-.duvidas h3{margin:0 0 8px;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:28px;line-height:1}
+.duvidas h3{margin:0 0 8px;font-family:var(--display);font-weight:500;font-size:20.7px;line-height:1.12;letter-spacing:-.02em}
 .duvidas a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;border-top:1px solid var(--linha);text-decoration:none;font-weight:400;font-size:15px}
 .duvidas a:hover{color:var(--destaque-texto)}
 .duvidas a .seta{color:var(--fio-ouro)}
@@ -235,14 +234,14 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .sim{margin-top:16px;border:1px solid var(--linha);background:var(--superficie)}
 .sim > div{padding:24px 20px;min-width:0}
 .sim > div + div{border-top:1px solid var(--linha);background:var(--fundo)}
-.sim h3{margin:14px 0 0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:32px;line-height:1}
+.sim h3{margin:14px 0 0;font-family:var(--display);font-weight:500;font-size:23.7px;line-height:1.12;letter-spacing:-.02em}
 .sim label{display:block;font-size:13px;font-weight:500;margin-top:20px}
 .campo{display:flex;align-items:center;border:1px solid var(--linha);border-radius:2px;margin-top:8px;background:var(--fundo);min-height:56px}
 .campo span{padding-left:14px;color:var(--grafite)}
 .campo input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:20px;font-weight:500;padding:12px 14px 12px 8px;color:var(--tinta);font-variant-numeric:tabular-nums}
 .campo input:focus{outline:none}
 .campo:focus-within{border-color:var(--fio-ouro);box-shadow:0 0 0 1px var(--fio-ouro)}
-.sim .res-n{font-family:var(--display);font-size:clamp(48px,12vw,68px);line-height:1;font-variant-numeric:tabular-nums;margin:10px 0 8px}
+.sim .res-n{font-family:var(--display);font-weight:500;font-size:clamp(35.5px,8.9vw,50.3px);line-height:1.12;font-variant-numeric:tabular-nums;margin:10px 0 8px;letter-spacing:-.02em}
 .linha-res{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--linha);font-size:15px}
 .linha-res b{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
 .sim small{display:block;font-size:12.5px;color:var(--grafite);margin-top:14px;line-height:1.55}
@@ -254,7 +253,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .calc-lista li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--linha-escura);font-size:15px}
 .calc-lista li::before{content:"";width:10px;height:10px;border:1px solid var(--ouro);margin-top:8px}
 .calc-previa{margin:0;background:var(--grafite-escuro);border:1px solid var(--linha-escura);padding:24px 20px;display:grid;gap:18px}
-.calc-previa figcaption{font-family:var(--display);text-transform:uppercase;font-size:24px;line-height:1.05}
+.calc-previa figcaption{font-family:var(--display);font-weight:500;font-size:17.8px;line-height:1.12;letter-spacing:-.02em}
 .calc-previa figcaption span{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.16em;color:var(--ouro);margin-bottom:8px}
 .cp-linha{display:grid;gap:8px}
 .cp-linha i{display:block;height:12px;border-radius:0 2px 2px 0}
@@ -267,7 +266,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* Para quem é */
 .perfis{display:grid;gap:44px}
 .perfil{border-top:3px solid var(--destaque);padding-top:24px;display:grid;gap:12px;align-content:start;min-width:0}
-.perfil h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:34px;line-height:.95;margin:0}
+.perfil h3{font-family:var(--display);font-weight:500;font-size:25.2px;line-height:1.12;margin:0;letter-spacing:-.02em}
 .perfil .quem-e{font-size:15px;color:var(--grafite)}
 .perfil ul{list-style:none;margin:4px 0 0;padding:0}
 .perfil li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--linha);font-size:15px}
@@ -293,7 +292,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .dados b{font-weight:500}
 .dados .pend{color:var(--cinza-post);font-weight:400}
 .form{display:grid;gap:18px;background:var(--grafite-escuro);border:1px solid var(--linha-escura);padding:24px 20px}
-.form h3{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:28px;line-height:1}
+.form h3{margin:0;font-family:var(--display);font-weight:500;font-size:20.7px;line-height:1.12;letter-spacing:-.02em}
 .form label{display:grid;gap:8px;font-size:13px;font-weight:500;color:var(--cinza-post)}
 .form input,.form select,.form textarea{font:inherit;font-size:16px;color:var(--marfim);background:var(--preto);border:1px solid var(--linha-escura);border-radius:2px;padding:14px;width:100%;min-height:52px}
 .form textarea{min-height:96px;resize:vertical}
@@ -435,7 +434,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   <div class="in">
     <a class="marca" href="#inicio" aria-label="Douglas Lopes, início">
       <span class="mono">DL</span>
-      <span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTOS · CFP</small></span>
+      <span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTO · CFP®</small></span>
     </a>
     <nav class="menu" id="menu" aria-label="Seções" hidden>
       <a href="#entregas">Entregas <i class="seta"></i></a>
@@ -455,7 +454,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 <main id="inicio">
 
 <!-- 1. Hero -->
-<section class="hero escura faixa" id="hero">
+<section class="hero clara faixa" id="hero">
   <div class="miolo">
     <div class="hero-txt">
       <div class="rotulo">Presidente Prudente (SP) · desde 2006</div>
@@ -469,18 +468,17 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     <div class="hero-foto">
       <img src="img/retrato-sofa.jpg" alt="Douglas Lopes sentado no escritório, de terno escuro e camisa branca" width="1200" height="1799" fetchpriority="high">
       <div class="grade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i></div>
-      <span class="nota" aria-hidden="true">menos é mais</span>
     </div>
   </div>
 </section>
 
 <!-- 2. Credenciais -->
-<section class="creds sup faixa" aria-label="Credenciais">
+<section class="creds escura faixa" aria-label="Credenciais">
   <div class="miolo">
     <ul>
       <li><span class="n">20 anos</span><span class="d">de mercado financeiro</span></li>
-      <li><span class="n">CFP</span><span class="d">planejador financeiro certificado</span></li>
-      <li><span class="n">CEA</span><span class="d">especialista em investimentos</span></li>
+      <li><span class="n">CFP®</span><span class="d">planejador financeiro certificado</span></li>
+      <li><span class="n">C-Pro I</span><span class="d">certificação ANBIMA de investimentos</span></li>
       <li><span class="n">ANCORD</span><span class="d">assessor credenciado</span></li>
       <li><span class="n">FEE</span><span class="d">remuneração transparente</span></li>
     </ul>
@@ -541,9 +539,9 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
         <div class="e-dl"><span class="e-rot">Comigo</span><p>Focus e agenda da semana em português claro, no seu WhatsApp.</p></div>
       </li>
       <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Mensal</span><h3>Fechamento da carteira</h3></div>
+        <div class="e-nome"><span class="e-quando">Mensal</span><h3>Leitura mensal da carteira</h3></div>
         <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Extrato com números soltos.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>O que puxou o resultado, o que atrapalhou e se algo muda.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p>Conversa sobre o que puxou o resultado, o que atrapalhou e se algo muda.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Trimestral</span><h3>Reunião de cenário</h3></div>
@@ -576,7 +574,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
         <div class="rotulo">Como eu trabalho</div>
         <h2 class="titulo">Primeiro o plano. <em>Depois a carteira.</em></h2>
       </div>
-      <p class="apoio">Metodologia do planejador CFP, em três etapas. Investimentos, aposentadoria, seguros, impostos e sucessão no mesmo plano.</p>
+      <p class="apoio">Metodologia do planejador CFP®, em três etapas. Investimentos, aposentadoria, seguros, impostos e sucessão no mesmo plano.</p>
     </div>
     <div class="metodo corpo">
       <article><div class="num">01</div><h3>Diagnóstico</h3><p>Patrimônio, renda, objetivos, dívidas, seguros e prazos. Entendo onde você está antes de sugerir qualquer coisa.</p></article>
@@ -593,7 +591,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     <h2 class="titulo">Frequência vale mais que <em>intensidade</em>.</h2>
     <div class="rotina corpo">
       <div><div class="freq">Semanal</div><div class="o-que">Resumo do cenário</div><p>O Relatório Focus e a agenda da semana explicados no seu WhatsApp.</p></div>
-      <div><div class="freq">Mensal</div><div class="o-que">Fechamento da carteira</div><p>O que puxou o resultado e o que atrapalhou.</p></div>
+      <div><div class="freq">Mensal</div><div class="o-que">Leitura da carteira</div><p>O que puxou o resultado e o que atrapalhou.</p></div>
       <div><div class="freq">Trimestral</div><div class="o-que">Vídeo de cenário</div><p>Conversa por vídeo sobre mercado e resultados.</p></div>
       <div><div class="freq">Semestral</div><div class="o-que">Revisão do plano</div><p>Objetivos, prazos e proteção revistos com você.</p></div>
     </div>
@@ -667,16 +665,17 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     <div>
       <div class="rotulo">Quem está por trás</div>
       <h2 class="titulo">Vi os dois lados <em>do balcão</em>.</h2>
-      <blockquote class="citacao">Quem conhece a pressão de dentro sabe onde ela distorce uma recomendação.</blockquote>
       <ol class="trajeto">
         <li><b>2006</b><span>Início da carreira dentro de um grande banco.</span></li>
         <li><b>20 anos</b><span>Da agência bancária à assessoria independente.</span></li>
-        <li><b>Hoje</b><span>Escritório ligado à XP, em Presidente Prudente.</span></li>
+        <li><b>Hoje</b><span>Ello Investimentos, assessoria vinculada à XP, em Presidente Prudente.</span></li>
       </ol>
       <div class="siglas">
-        <span><abbr title="Certified Financial Planner">CFP</abbr></span>
-        <span><abbr title="Certificação de Especialista em Investimentos">CEA</abbr></span>
-        <span>ANCORD</span><span>CPA 20</span><span>CPA 10</span>
+        <span><abbr title="Certified Financial Planner">CFP®</abbr></span>
+        <span>C-Pro I</span>
+        <span>C-Pro R</span>
+        <span>CPA</span>
+        <span>ANCORD</span>
         <span>Administração</span><span>MBA Gestão de Pessoas</span>
       </div>
     </div>
@@ -815,8 +814,8 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
         <img src="img/retrato-mesa-wide.jpg" alt="Douglas Lopes sorrindo, sentado à mesa do escritório" width="1100" height="879" loading="lazy">
       </figure>
       <ul class="dados">
-        <li><span>WhatsApp</span><b class="pend">(18) 00000 0000</b></li>
-        <li><span>Email</span><b class="pend">contato@douglaslopes.com.br</b></li>
+        <li><span>WhatsApp</span><b>(18) 99676 4001</b></li>
+        <li><span>Email</span><b><a href="mailto:douglasm.lopes@elloinvestimentos.com" style="overflow-wrap:anywhere">douglasm.lopes@elloinvestimentos.com</a></b></li>
         <li><span>Escritório</span><b>Presidente Prudente (SP)</b></li>
         <li><span>Atendimento</span><b>Presencial e por vídeo</b></li>
       </ul>
@@ -834,7 +833,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
         </select>
       </label>
       <label for="msg">Algo mais? (opcional)<textarea id="msg" name="msg" placeholder="Conte em poucas linhas"></textarea></label>
-      <a class="btn btn-ouro" id="enviar" href="https://wa.me/5518000000000" target="_blank" rel="noopener">Enviar pelo WhatsApp <i class="seta"></i></a>
+      <a class="btn btn-ouro" id="enviar" href="https://wa.me/5518996764001" target="_blank" rel="noopener">Enviar pelo WhatsApp <i class="seta"></i></a>
       <p class="form-msg" id="formMsg" aria-live="polite">Abre o WhatsApp com sua mensagem pronta.</p>
     </form>
   </div>
@@ -845,15 +844,15 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 <footer class="rodape escura faixa">
   <div class="miolo">
     <div class="linha1">
-      <a class="marca" href="#inicio"><span class="mono">DL</span><span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTOS · CFP</small></span></a>
+      <a class="marca" href="#inicio"><span class="mono">DL</span><span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTO · CFP®</small></span></a>
       <div class="grade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i></div>
     </div>
-    <p class="legal">Douglas Lopes é assessor de investimentos credenciado, vinculado a escritório parceiro da XP Investimentos. Conteúdo informativo, sem promessa de rentabilidade. Rentabilidade passada não garante rentabilidade futura. Texto legal final sujeito à validação do compliance da corretora e do escritório.</p>
+    <p class="legal">Douglas Lopes atua como assessor de investimento vinculado à Ello Investimentos, contratada pela XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A., intermediário contratante, nos termos da Resolução CVM 178. Canais oficiais e ouvidoria da XP Investimentos em xpi.com.br. O assessor não administra carteiras: toda decisão de investimento é do cliente. Conteúdo informativo, sem promessa de rentabilidade. Rentabilidade passada não garante rentabilidade futura. Texto sujeito à validação do compliance.</p>
   </div>
 </footer>
 
 <div class="zap" id="zap">
-  <a class="btn btn-ouro" href="https://wa.me/5518000000000" target="_blank" rel="noopener">
+  <a class="btn btn-ouro" href="https://wa.me/5518996764001" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
     Falar no WhatsApp
   </a>
@@ -861,7 +860,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 
 <script>
 (function(){
-  var NUM = "5518000000000";
+  var NUM = "5518996764001";
 
   /* Menu mobile */
   var btn = document.getElementById("menuBtn"), menu = document.getElementById("menu");
@@ -932,10 +931,10 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* ===== Movimento ===== */
 (function(){
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var RV = ".rotulo,.titulo,.apoio,.manchete,.acoes,.citacao,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
+  var RV = ".rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
   var ST = ".entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
   var FX = ".entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
-  var FXROW = ".dores li,.temas > div,.faq details,.duvidas a,.trajeto li,.perfil li,.rotina > div";
+  var FXROW = ".dores li,.temas > div,.faq details,.duvidas a,.trajeto li,.perfil li";
 
   document.querySelectorAll(FX).forEach(function(el){ el.classList.add("fx"); });
   document.querySelectorAll(FXROW).forEach(function(el){ if(!el.classList.contains("fx")) el.classList.add("fx-row"); });
