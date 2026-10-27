@@ -132,6 +132,14 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .e-dl{background:var(--superficie);border-left:3px solid var(--destaque)}
 .e-dl .e-rot{color:var(--destaque-texto)}
 .e-dl p{font-size:15px;font-weight:400}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Ícones de comparação */
+.e-banco p,.e-dl p{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.e-banco p::before,.e-dl p::before{content:"";width:22px;height:22px;border-radius:50%;margin-top:1px;background-repeat:no-repeat;background-position:center;background-size:12px}
+.e-banco p::before{border:1px solid var(--linha);background-color:var(--superficie);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' stroke='%23B23A2E' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
+.e-dl p::before{background-color:var(--destaque);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.3l2.3 2.3L9.6 3.6' fill='none' stroke='%230B0B0A' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.anim [data-st] .e-banco p::before,.anim [data-st] .e-dl p::before{transform:scale(0) rotate(-90deg);transition:transform .5s cubic-bezier(.3,1.6,.5,1) calc(var(--i,0) * 90ms + .35s)}
+.anim [data-st].in .e-banco p::before,.anim [data-st].in .e-dl p::before{transform:none}
 .ent-cab{display:none}
 .ent-fim{margin-top:32px;display:grid;gap:20px;align-items:center}
 .ent-fim p{font-size:clamp(18px,4.4vw,22px);line-height:1.45;max-width:40ch}
@@ -542,43 +550,43 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     <ul class="entregas corpo">
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">No início</span><h3>Diagnóstico completo</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Questionário de perfil padrão.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Patrimônio, renda, objetivos, dívidas, seguros e impostos levantados um a um.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Questionário de perfil padrão.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Patrimônio, renda, objetivos, dívidas, seguros e impostos levantados um a um.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">No início</span><h3>Plano por escrito</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Oferta do produto da campanha.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Investimentos, aposentadoria, proteção, imposto e sucessão num só documento.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Oferta do produto da campanha.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Investimentos, aposentadoria, proteção, imposto e sucessão num só documento.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Sempre</span><h3>Carteira sob medida</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Prateleira da própria instituição.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Plataforma aberta, carteira simples e cada escolha explicada.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Prateleira da própria instituição.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Plataforma aberta, carteira simples e cada escolha explicada.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Semanal</span><h3>Resumo do cenário</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Contato quando há meta para bater.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Focus e agenda da semana em português claro, no seu WhatsApp.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Contato quando há meta para bater.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Focus e agenda da semana em português claro, no seu WhatsApp.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Mensal</span><h3>Leitura mensal da carteira</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Extrato com números soltos.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Conversa sobre o que puxou o resultado, o que atrapalhou e se algo muda.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Extrato com números soltos.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Conversa sobre o que puxou o resultado, o que atrapalhou e se algo muda.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Trimestral</span><h3>Reunião de cenário</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Reunião só quando você pede.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Vídeo sobre mercado e resultados, com espaço para perguntas.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Reunião só quando você pede.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Vídeo sobre mercado e resultados, com espaço para perguntas.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Semestral</span><h3>Revisão do plano</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Plano esquecido depois da venda.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Objetivos, prazos e proteção revistos com você.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Plano esquecido depois da venda.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Objetivos, prazos e proteção revistos com você.</p></div>
       </li>
       <li class="entrega">
         <div class="e-nome"><span class="e-quando">Sempre</span><h3>Mesmo assessor</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p>Gerente novo a cada mudança de agência.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p>Quem fez o diagnóstico acompanha você por anos.</p></div>
+        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Gerente novo a cada mudança de agência.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Quem fez o diagnóstico acompanha você por anos.</p></div>
       </li>
     </ul>
     <div class="ent-fim">
