@@ -456,24 +456,45 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .btn .seta{transition:transform .25s}
 @media (hover:hover){.btn:hover .seta:not(.volta){transform:translateX(4px)}}
 @media (prefers-reduced-motion: reduce){.fx.fx,.fx-row{transition:none}.ripple{display:none}}
+
+/* Topo das subpáginas */
+.pg-topo .miolo{padding-block:clamp(48px,9vw,96px) clamp(40px,7vw,72px);display:grid;gap:20px}
+.pg-topo .titulo{font-size:clamp(34px,8vw,64px)}
+.pg-topo .apoio{font-size:17px;max-width:52ch}
+.migalha{font-size:13px;color:var(--grafite);display:flex;gap:8px;align-items:center}
+.escura .migalha{color:var(--cinza-post)}
+.migalha a{text-decoration:none}
+.migalha a:hover{color:var(--destaque-texto)}
+.pg-topo .acoes{margin-top:8px}
+/* Sobre curto na home */
+.sobre-curto .miolo{display:grid;gap:36px;align-items:center}
+.sobre-curto .miolo > *{min-width:0}
+.sobre-curto .quem-foto{max-width:380px}
+.sobre-curto .acoes{margin-top:28px}
+@media (min-width:760px){.sobre-curto .miolo{grid-template-columns:5fr 7fr;gap:72px}.sobre-curto .quem-foto{margin:0}}
+/* Fechamento das subpáginas */
+.fecho .miolo{display:grid;gap:28px}
+.fecho .acoes{display:grid;gap:12px}
+@media (min-width:560px){.fecho .acoes{display:flex;flex-wrap:wrap}}
+@media (min-width:760px){.fecho .miolo{grid-template-columns:1.2fr .8fr;align-items:end;gap:64px}}
+.menu a[aria-current="page"]{color:var(--ouro)}
+@media (min-width:1180px){.menu a[aria-current="page"]{color:var(--marfim);box-shadow:inset 0 -2px 0 var(--ouro)}}
 </style>
 </head>
 <body>
 
 <header class="topo faixa">
   <div class="in">
-    <a class="marca" href="#inicio" aria-label="Douglas Lopes, início">
+    <a class="marca" href="index.html" aria-label="Douglas Lopes, início">
       <span class="mono">DL</span>
       <span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTO · CFP®</small></span>
     </a>
-    <nav class="menu" id="menu" aria-label="Seções" hidden>
-      <a href="#entregas">Entregas <i class="seta"></i></a>
-      <a href="#como">Como trabalho <i class="seta"></i></a>
-      <a href="#transparencia">Transparência <i class="seta"></i></a>
-      <a href="#quem">Quem sou <i class="seta"></i></a>
-      <a href="#conteudo">Cenário <i class="seta"></i></a>
+    <nav class="menu" id="menu" aria-label="Páginas" hidden>
+      <a href="index.html" aria-current="page">Início <i class="seta"></i></a>
+      <a href="como-trabalho.html">Como trabalho <i class="seta"></i></a>
+      <a href="sobre.html">Sobre <i class="seta"></i></a>
+      <a href="conteudo.html">Conteúdo <i class="seta"></i></a>
       <a href="calculadora.html">Calculadora <i class="seta"></i></a>
-      <a href="#faq">Dúvidas <i class="seta"></i></a>
       <a class="btn btn-ouro" href="#contato">Agendar uma conversa</a>
     </nav>
     <a class="btn btn-ouro cta-topo" href="#contato">Fale comigo</a>
@@ -492,7 +513,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
       <p class="manchete">Diagnóstico, plano e acompanhamento. <b>Sem o produto do dia</b>, em <b>português claro</b>.</p>
       <div class="acoes">
         <a class="btn btn-ouro" href="#contato">Agendar uma conversa <i class="seta"></i></a>
-        <a class="btn btn-linha" href="#como">Como eu trabalho</a>
+        <a class="btn btn-linha" href="como-trabalho.html">Como eu trabalho</a>
       </div>
     </div>
     <div class="hero-foto">
@@ -523,15 +544,12 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
         <div class="rotulo">Você já passou por isso?</div>
         <h2 class="titulo">Muito produto. <em>Pouco plano.</em></h2>
       </div>
-      <p class="apoio">Boa parte do atendimento financeiro gira em torno de metas de venda. O efeito aparece na carteira, no extrato e na declaração do imposto.</p>
+      <p class="apoio">Boa parte do atendimento financeiro gira em torno de metas de venda.</p>
     </div>
     <ul class="dores corpo">
       <li><h3>Gerente novo a cada ano</h3><p>A relação recomeça do zero e ninguém conhece sua história.</p></li>
       <li><h3>Oferta guiada por meta</h3><p>O produto indicado é o que precisa ser vendido no mês.</p></li>
       <li><h3>Taxa que não aparece</h3><p>Custos embutidos que nunca ficam claros no extrato.</p></li>
-      <li><h3>Carteira de prateleira</h3><p>Montada para qualquer cliente, não para a sua vida.</p></li>
-      <li><h3>Imposto pago a mais</h3><p>A descoberta chega só na hora da declaração.</p></li>
-      <li><h3>Não entender o que comprou</h3><p>Siglas, prazos e riscos que ninguém explicou.</p></li>
     </ul>
   </div>
 </section>
@@ -596,174 +614,6 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   </div>
 </section>
 
-<!-- 4. Como eu trabalho -->
-<section id="como" class="escura faixa bgf" style="--bg:url(img/bg-aperto.jpg);--bg-pos:center 40%">
-  <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">Como eu trabalho</div>
-        <h2 class="titulo">Primeiro o plano. <em>Depois a carteira.</em></h2>
-      </div>
-      <p class="apoio">Metodologia do planejador CFP®, em três etapas. Investimentos, aposentadoria, seguros, impostos e sucessão no mesmo plano.</p>
-    </div>
-    <div class="metodo corpo">
-      <article><div class="num">01</div><h3>Diagnóstico</h3><p>Patrimônio, renda, objetivos, dívidas, seguros e prazos. Entendo onde você está antes de sugerir qualquer coisa.</p></article>
-      <article><div class="num">02</div><h3>Plano</h3><p>Recomendação por escrito, carteira simples e plataforma aberta. Cada decisão vem com o raciocínio.</p></article>
-      <article><div class="num">03</div><h3>Acompanhamento</h3><p>A carteira é olhada de fato. Quando algo muda, você recebe o aviso e o motivo.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- 5. Rotina -->
-<section id="rotina" class="clara faixa bgf largo mix" style="--bg:url(img/bg-torres.jpg);--bg-pos:center 30%">
-  <div class="miolo">
-    <div class="rotulo">Rotina de acompanhamento</div>
-    <h2 class="titulo">Frequência vale mais que <em>intensidade</em>.</h2>
-    <div class="rotina corpo">
-      <div><div class="freq">Semanal</div><div class="o-que">Resumo do cenário</div><p>O Relatório Focus e a agenda da semana explicados no seu WhatsApp.</p></div>
-      <div><div class="freq">Mensal</div><div class="o-que">Leitura da carteira</div><p>O que puxou o resultado e o que atrapalhou.</p></div>
-      <div><div class="freq">Trimestral</div><div class="o-que">Vídeo de cenário</div><p>Conversa por vídeo sobre mercado e resultados.</p></div>
-      <div><div class="freq">Semestral</div><div class="o-que">Revisão do plano</div><p>Objetivos, prazos e proteção revistos com você.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6. Fee x comissão -->
-<section id="transparencia" class="escura faixa bgf" style="--bg:url(img/bg-nota.jpg);--bg-pos:center 35%">
-  <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">Transparência</div>
-        <h2 class="titulo">Você sabe quanto paga. <em>E por quê.</em></h2>
-      </div>
-      <p class="apoio">Existem dois jeitos de remunerar um assessor. Entender a diferença ajuda a avaliar qualquer recomendação.</p>
-    </div>
-    <div class="compara corpo">
-      <div>
-        <span class="tag">Modelo mais comum</span>
-        <h3>Comissão</h3>
-        <ul>
-          <li>Remuneração embutida nos produtos.</li>
-          <li>Custo raramente visível no extrato.</li>
-          <li>Alguns produtos remuneram mais que outros.</li>
-          <li>Mais movimentação pode gerar mais receita.</li>
-        </ul>
-      </div>
-      <div class="fee">
-        <span class="tag">Como eu trabalho</span>
-        <h3>Fee</h3>
-        <ul>
-          <li>Taxa combinada e visível desde o início.</li>
-          <li>Ganho igual, qualquer que seja o produto.</li>
-          <li>Plataforma aberta, sem prateleira única.</li>
-          <li>Interesse na carteira certa por anos.</li>
-        </ul>
-      </div>
-    </div>
-    <p class="ressalva">Condições e percentuais apresentados na primeira conversa, por escrito.</p>
-  </div>
-</section>
-
-<!-- 7. Além do investimento -->
-<section class="sup faixa">
-  <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">Planejamento completo</div>
-        <h2 class="titulo">Além do <em>investimento</em>.</h2>
-      </div>
-      <p class="apoio">As dúvidas do dia a dia entram no mesmo plano. Quando o assunto pede outro especialista, aciono o parceiro certo.</p>
-    </div>
-    <div class="temas corpo">
-      <div><span class="chave">Aposentadoria</span><h3>Quanto você precisa ter</h3><p>Meta, prazo e caminho para chegar lá.</p></div>
-      <div><span class="chave">Imposto</span><h3>Pagar o devido, não mais</h3><p>PGBL, VGBL, tabelas e escolhas de fim de ano.</p></div>
-      <div><span class="chave">Sucessão</span><h3>Patrimônio organizado</h3><p>Planejamento para a próxima geração.</p></div>
-      <div><span class="chave">Proteção</span><h3>Seguro não é investimento</h3><p>Cobertura certa para a família, pelo custo justo.</p></div>
-      <div><span class="chave">Dívida e crédito</span><h3>Antecipar ou manter?</h3><p>Financiamento, consórcio e crédito comparados com números.</p></div>
-      <div><span class="chave">Exterior</span><h3>Proteção em outra moeda</h3><p>Quando faz sentido investir fora do Brasil.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 8. Quem sou -->
-<section id="quem" class="quem escura faixa">
-  <div class="miolo">
-    <figure class="quem-foto" style="margin-block:0">
-      <div class="ft"><img src="img/retrato-pb-busto.jpg" alt="Douglas Lopes em preto e branco, apoiado na mesa do escritório" width="900" height="1125" loading="lazy"></div>
-      <figcaption aria-hidden="true">desde 2006</figcaption>
-    </figure>
-    <div>
-      <div class="rotulo">Quem está por trás</div>
-      <h2 class="titulo">Vi os dois lados <em>do balcão</em>.</h2>
-      <ol class="trajeto">
-        <li><b>2006</b><span>Início da carreira dentro de um grande banco.</span></li>
-        <li><b>20 anos</b><span>Da agência bancária à assessoria independente.</span></li>
-        <li><b>Hoje</b><span>Ello Investimentos, assessoria vinculada à XP, em Presidente Prudente.</span></li>
-      </ol>
-      <div class="siglas">
-        <span><abbr title="Certified Financial Planner">CFP®</abbr></span>
-        <span>C-Pro I</span>
-        <span>C-Pro R</span>
-        <span>CPA</span>
-        <span>ANCORD</span>
-        <span>Administração</span><span>MBA Gestão de Pessoas</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9. Cenário -->
-<section id="conteudo" class="clara faixa">
-  <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">Cenário em português claro</div>
-        <h2 class="titulo">Toda semana, <em>sem jargão</em>.</h2>
-      </div>
-      <p class="apoio">O mesmo resumo que meus clientes recebem, em versão aberta. Fatos e números, sem promessa.</p>
-    </div>
-    <div class="conteudo-grid corpo">
-      <article class="focus">
-        <div class="focus-top">
-          <h3>Focus da semana</h3>
-          <span class="ex">Exemplo</span>
-        </div>
-        <dl>
-          <div><dt>O que mudou</dt><dd>Revisão das projeções de inflação e juros pelo mercado.</dd></div>
-          <div><dt>O que observar</dt><dd>Agenda de indicadores no Brasil e nos Estados Unidos.</dd></div>
-          <div><dt>Para quem investe</dt><dd>O efeito prático em renda fixa, bolsa e dólar.</dd></div>
-          <div><dt>Sigla da semana</dt><dd><b>PCE</b>: inflação de consumo usada pelo Fed, o banco central americano.</dd></div>
-        </dl>
-        <a class="btn btn-linha" href="#contato">Receber no WhatsApp <i class="seta"></i></a>
-      </article>
-      <aside class="duvidas">
-        <h3>Investimento sem mistério</h3>
-        <a href="#faq-pgbl" data-abre="faq-pgbl">PGBL ou VGBL? <i class="seta"></i></a>
-        <a href="#faq-isento" data-abre="faq-isento">Isento é sempre melhor? <i class="seta"></i></a>
-        <a href="#faq-gratis" data-abre="faq-gratis">Assessor é de graça? <i class="seta"></i></a>
-        <a href="#faq-banco" data-abre="faq-banco">E o gerente do banco? <i class="seta"></i></a>
-      </aside>
-    </div>
-
-    <div class="sim">
-      <div>
-        <div class="rotulo">Simulador</div>
-        <h3>Quanto o PGBL pode adiar de imposto?</h3>
-        <p class="apoio" style="margin-top:12px;font-size:15px">Para quem faz a declaração completa. Dá para deduzir até 12% da renda bruta tributável.</p>
-        <label for="renda">Renda bruta tributável no ano</label>
-        <div class="campo"><span>R$</span><input id="renda" inputmode="numeric" value="300.000" autocomplete="off"></div>
-      </div>
-      <div aria-live="polite">
-        <span class="rotulo">Imposto adiado por ano</span>
-        <div class="res-n" id="resIR">R$ 9.900</div>
-        <div class="linha-res"><span>Aporte máximo dedutível</span><b id="resAporte">R$ 36.000</b></div>
-        <div class="linha-res"><span>Alíquota considerada</span><b>27,5%</b></div>
-        <small>Estimativa simplificada, na alíquota máxima do IR. O imposto não some: é pago no resgate, pela tabela escolhida. Exige contribuição ao INSS ou regime próprio. Não é recomendação.</small>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 9b. Calculadora -->
 <section id="calculadora" class="escura faixa bgf" style="--bg:url(img/bg-cotacoes.jpg);--bg-pos:center;--bg-op:.22">
   <div class="miolo calc-chamada">
@@ -788,47 +638,21 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   </div>
 </section>
 
-<!-- 10. Para quem é -->
-<section id="para-quem" class="sup faixa bgf mix" style="--bg:url(img/bg-predios.jpg);--bg-pos:center 60%">
+<!-- Sobre curto -->
+<section class="sobre-curto quem clara faixa">
   <div class="miolo">
-    <div class="rotulo">Para quem é</div>
-    <h2 class="titulo">Duas fases. <em>A mesma atenção.</em></h2>
-    <div class="perfis corpo">
-      <div class="perfil">
-        <h3>Quem já tem patrimônio</h3>
-        <p class="quem-e">Médicos, juízes, procuradores, empresários, pecuaristas e profissionais liberais. Muitos chegam após uma virada: venda de imóvel, herança ou um problema com o banco.</p>
-        <ul>
-          <li>Entender o que acontece com o dinheiro</li>
-          <li>Alguém de confiança por muitos anos</li>
-          <li>Plano de aposentadoria e sucessão</li>
-        </ul>
+    <figure class="quem-foto" style="margin-block:0">
+      <div class="ft"><img src="img/retrato-pb-busto.jpg" alt="Douglas Lopes em preto e branco, apoiado na mesa do escritório" width="900" height="1125" loading="lazy"></div>
+      <figcaption aria-hidden="true">desde 2006</figcaption>
+    </figure>
+    <div>
+      <div class="rotulo">Quem está por trás</div>
+      <h2 class="titulo">Vi os dois lados <em>do balcão</em>.</h2>
+      <p class="apoio" style="margin-top:20px">Vinte anos de mercado, da agência bancária à assessoria. Hoje na Ello Investimentos, vinculada à XP, em Presidente Prudente.</p>
+      <div class="acoes">
+        <a class="btn btn-ouro" href="sobre.html">Minha trajetória <i class="seta"></i></a>
+        <a class="btn btn-linha" href="como-trabalho.html">Como eu trabalho</a>
       </div>
-      <div class="perfil">
-        <h3>Quem está construindo</h3>
-        <p class="quem-e">Profissionais com renda alta e patrimônio ainda pequeno. Tratados como "pequenos" pelo banco, no começo de uma relação de décadas.</p>
-        <ul>
-          <li>Saber por onde começar</li>
-          <li>Transformar renda em patrimônio</li>
-          <li>Pagar menos imposto de forma correta</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 11. FAQ -->
-<section id="faq" class="clara faixa">
-  <div class="miolo">
-    <div class="rotulo">Dúvidas frequentes</div>
-    <h2 class="titulo">Perguntas <em>diretas</em>.</h2>
-    <div class="faq corpo">
-      <details id="faq-gratis"><summary>Assessor é de graça?</summary><p>Nenhum assessor trabalha de graça. Na comissão, o custo vem embutido nos produtos. No fee, você vê exatamente quanto paga.</p></details>
-      <details id="faq-banco"><summary>Meu gerente do banco já não cuida disso?</summary><p>O gerente costuma atender centenas de clientes, com metas de produto e prateleira fechada. Aqui o foco é o seu plano, com acompanhamento fixo.</p></details>
-      <details><summary>Assessoria é só para quem já é rico?</summary><p>Não. Quem começa cedo, com orientação, tende a errar menos. A conversa inicial mostra se faz sentido para você agora.</p></details>
-      <details><summary>Preciso tirar meu dinheiro do banco?</summary><p>Não há mudança obrigatória. Primeiro vem o diagnóstico. Qualquer movimentação é decidida com você e explicada antes.</p></details>
-      <details id="faq-pgbl"><summary>PGBL ou VGBL?</summary><p>PGBL serve para quem faz a declaração completa e quer deduzir até 12% da renda bruta. VGBL tende a servir para quem faz a simplificada ou já atingiu esse limite.</p></details>
-      <details id="faq-isento"><summary>Investimento isento é sempre melhor?</summary><p>Nem sempre. Um título tributado pode render mais que um isento depois do imposto. A comparação certa é sempre a do rendimento líquido.</p></details>
-      <details><summary>O atendimento é só presencial?</summary><p>O escritório fica em Presidente Prudente, mas as reuniões por vídeo e o resumo semanal no WhatsApp permitem atender em todo o Brasil.</p></details>
     </div>
   </div>
 </section>
@@ -874,7 +698,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 <footer class="rodape escura faixa">
   <div class="miolo">
     <div class="linha1">
-      <a class="marca" href="#inicio"><span class="mono">DL</span><span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTO · CFP®</small></span></a>
+      <a class="marca" href="index.html"><span class="mono">DL</span><span class="marca-txt">DOUGLAS LOPES<small>ASSESSOR DE INVESTIMENTO · CFP®</small></span></a>
       <div class="grade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i></div>
     </div>
     <p class="legal">Douglas Lopes atua como assessor de investimento vinculado à Ello Investimentos, contratada pela XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A., intermediário contratante, nos termos da Resolução CVM 178. Canais oficiais e ouvidoria da XP Investimentos em xpi.com.br. O assessor não administra carteiras: toda decisão de investimento é do cliente. Conteúdo informativo, sem promessa de rentabilidade. Rentabilidade passada não garante rentabilidade futura. Texto sujeito à validação do compliance.</p>
@@ -914,8 +738,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
       es.forEach(function(e){ vis[e.target.id] = e.isIntersecting; });
       zap.classList.toggle("oculta", vis.hero || vis.contato);
     }, {threshold:0.15});
-    io.observe(document.getElementById("hero"));
-    io.observe(document.getElementById("contato"));
+    ["hero","contato"].forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
   }
 
   /* Links de dúvidas abrem o item do FAQ */
@@ -926,6 +749,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   /* Simulador PGBL */
   var brl = new Intl.NumberFormat("pt-BR",{maximumFractionDigits:0});
   var renda = document.getElementById("renda");
+  if (renda){
   function calc(){
     var v = parseInt((renda.value||"").replace(/\D/g,""),10) || 0;
     var aporte = v*0.12;
@@ -938,9 +762,11 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     calc();
   });
   calc();
+  }
 
   /* Formulário monta mensagem */
   var f = document.getElementById("form"), env = document.getElementById("enviar");
+  if (f && env){
   function link(){
     var n = document.getElementById("nome").value.trim();
     var m = document.getElementById("momento").value;
@@ -955,6 +781,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     document.getElementById("formMsg").textContent = "Se o WhatsApp não abrir, chame no número ao lado.";
   });
   link();
+  }
 })();
 </script>
 <script>

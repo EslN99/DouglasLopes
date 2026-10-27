@@ -6,7 +6,10 @@ Site de Douglas Lopes, assessor de investimentos e planejador financeiro CFP em 
 
 | Caminho | Página |
 | --- | --- |
-| `/` | Site principal (`index.html`) |
+| `/` | Início (`index.html`) |
+| `/como-trabalho.html` | Metodologia, rotina, fee e planejamento |
+| `/sobre.html` | Trajetória, certificações e para quem é |
+| `/conteudo.html` | Cenário, simulador de PGBL e dúvidas |
 | `/calculadora.html` | Calculadora de patrimônio |
 | `/links/` | Página de links da bio do Instagram (separada do site) |
 
