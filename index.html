@@ -135,9 +135,9 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* Ícones de comparação */
 .e-banco p,.e-dl p{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
-.e-banco p::before,.e-dl p::before{content:"";width:22px;height:22px;border-radius:50%;margin-top:1px;background-repeat:no-repeat;background-position:center;background-size:12px}
-.e-banco p::before{border:1px solid var(--linha);background-color:var(--superficie);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' stroke='%23B23A2E' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
-.e-dl p::before{background-color:var(--destaque);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.3l2.3 2.3L9.6 3.6' fill='none' stroke='%230B0B0A' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.e-banco p::before,.e-dl p::before{width:22px;font-size:17px;line-height:1.35;text-align:center;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.e-banco p::before{content:"\274C"}
+.e-dl p::before{content:"\2705"}
 .anim [data-st] .e-banco p::before,.anim [data-st] .e-dl p::before{transform:scale(0) rotate(-90deg);transition:transform .5s cubic-bezier(.3,1.6,.5,1) calc(var(--i,0) * 90ms + .35s)}
 .anim [data-st].in .e-banco p::before,.anim [data-st].in .e-dl p::before{transform:none}
 .ent-cab{display:none}
