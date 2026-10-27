@@ -252,7 +252,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .calc-lista{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--linha-escura)}
 .calc-lista li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--linha-escura);font-size:15px}
 .calc-lista li::before{content:"";width:10px;height:10px;border:1px solid var(--ouro);margin-top:8px}
-.calc-previa{margin:0;background:var(--grafite-escuro);border:1px solid var(--linha-escura);padding:24px 20px;display:grid;gap:18px}
+.calc-previa{margin:0;background:rgba(21,21,19,.85);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--linha-escura);padding:24px 20px;display:grid;gap:18px}
 .calc-previa figcaption{font-family:var(--display);font-weight:500;font-size:17.8px;line-height:1.12;letter-spacing:-.02em}
 .calc-previa figcaption span{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.16em;color:var(--ouro);margin-bottom:8px}
 .cp-linha{display:grid;gap:8px}
@@ -291,7 +291,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 .dados span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro)}
 .dados b{font-weight:500}
 .dados .pend{color:var(--cinza-post);font-weight:400}
-.form{display:grid;gap:18px;background:var(--grafite-escuro);border:1px solid var(--linha-escura);padding:24px 20px}
+.form{display:grid;gap:18px;background:rgba(21,21,19,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--linha-escura);padding:24px 20px}
 .form h3{margin:0;font-family:var(--display);font-weight:500;font-size:20.7px;line-height:1.12;letter-spacing:-.02em}
 .form label{display:grid;gap:8px;font-size:13px;font-weight:500;color:var(--cinza-post)}
 .form input,.form select,.form textarea{font:inherit;font-size:16px;color:var(--marfim);background:var(--preto);border:1px solid var(--linha-escura);border-radius:2px;padding:14px;width:100%;min-height:52px}
@@ -381,6 +381,28 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   .menu a .seta,.menu .btn{display:none}
   .topo .cta-topo{display:inline-flex;min-height:42px;padding:10px 18px;font-size:14px}
 }
+
+
+/* Fundos fotográficos: imagem P&B com opacidade baixa, esmaecendo em direção ao texto */
+.bgf{position:relative;isolation:isolate;overflow:clip}
+.bgf::before{content:"";position:absolute;z-index:-1;inset:0;background:var(--bg) var(--bg-pos,center)/cover no-repeat;opacity:var(--bg-op,.22);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 45%,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 45%,#000 70%,transparent 100%);
+  transform:scale(1.06);transition:transform 1.8s cubic-bezier(.2,.7,.2,1),opacity 1.2s ease}
+.bgf.vis::before{transform:none}
+.clara.bgf,.sup.bgf{--bg-op:.09}
+.bgf.mix::before{mix-blend-mode:multiply}
+@media (min-width:760px){
+  .bgf::before{left:auto;width:min(58%,820px);
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    mask-image:linear-gradient(to right,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    -webkit-mask-composite:source-in;mask-composite:intersect}
+  .bgf.esq::before{left:0;right:auto;
+    -webkit-mask-image:linear-gradient(to left,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    mask-image:linear-gradient(to left,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}
+  .bgf.largo::before{width:100%;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 75%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 75%,transparent)}
+  .escura.bgf{--bg-op:.3}
+}
+@media (prefers-reduced-motion: reduce){.bgf::before{transform:none}}
 
 /* ===== Movimento: entrada no scroll ===== */
 .anim .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -567,7 +589,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 </section>
 
 <!-- 4. Como eu trabalho -->
-<section id="como" class="escura faixa">
+<section id="como" class="escura faixa bgf" style="--bg:url(img/bg-aperto.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div class="cab">
       <div>
@@ -585,7 +607,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 </section>
 
 <!-- 5. Rotina -->
-<section class="clara faixa">
+<section id="rotina" class="clara faixa bgf largo mix" style="--bg:url(img/bg-torres.jpg);--bg-pos:center 30%">
   <div class="miolo">
     <div class="rotulo">Rotina de acompanhamento</div>
     <h2 class="titulo">Frequência vale mais que <em>intensidade</em>.</h2>
@@ -599,7 +621,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 </section>
 
 <!-- 6. Fee x comissão -->
-<section id="transparencia" class="escura faixa">
+<section id="transparencia" class="escura faixa bgf" style="--bg:url(img/bg-nota.jpg);--bg-pos:center 35%">
   <div class="miolo">
     <div class="cab">
       <div>
@@ -735,7 +757,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 </section>
 
 <!-- 9b. Calculadora -->
-<section id="calculadora" class="escura faixa">
+<section id="calculadora" class="escura faixa bgf" style="--bg:url(img/bg-cotacoes.jpg);--bg-pos:center;--bg-op:.22">
   <div class="miolo calc-chamada">
     <div>
       <div class="rotulo">Calculadora de patrimônio</div>
@@ -759,7 +781,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 </section>
 
 <!-- 10. Para quem é -->
-<section class="sup faixa">
+<section id="para-quem" class="sup faixa bgf mix" style="--bg:url(img/bg-predios.jpg);--bg-pos:center 60%">
   <div class="miolo">
     <div class="rotulo">Para quem é</div>
     <h2 class="titulo">Duas fases. <em>A mesma atenção.</em></h2>
@@ -804,7 +826,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 </section>
 
 <!-- 12. Contato -->
-<section id="contato" class="contato escura faixa">
+<section id="contato" class="contato escura faixa bgf" style="--bg:url(img/bg-assinatura.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div>
       <div class="rotulo">Primeira conversa</div>
@@ -1016,6 +1038,14 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
       });
     }, 1200);
   });
+})();
+
+/* Fundos: leve aproximação ao entrar na tela */
+(function(){
+  var els = document.querySelectorAll(".bgf");
+  if (!("IntersectionObserver" in window)) { els.forEach(function(e){ e.classList.add("vis"); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("vis"); io.unobserve(e.target); } }); }, {threshold:.1});
+  els.forEach(function(e){ io.observe(e); });
 })();
 </script>
 </body>

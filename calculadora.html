@@ -222,6 +222,28 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
 .calc .saidas > *,.licoes-grid > *,.cards > *,.campos > *,.taxas-grid > *{min-width:0}
 .painel{min-width:0;overflow:hidden}
 
+
+/* Fundos fotográficos: imagem P&B com opacidade baixa, esmaecendo em direção ao texto */
+.bgf{position:relative;isolation:isolate;overflow:clip}
+.bgf::before{content:"";position:absolute;z-index:-1;inset:0;background:var(--bg) var(--bg-pos,center)/cover no-repeat;opacity:var(--bg-op,.22);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 45%,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 45%,#000 70%,transparent 100%);
+  transform:scale(1.06);transition:transform 1.8s cubic-bezier(.2,.7,.2,1),opacity 1.2s ease}
+.bgf.vis::before{transform:none}
+.clara.bgf,.sup.bgf{--bg-op:.09}
+.bgf.mix::before{mix-blend-mode:multiply}
+@media (min-width:760px){
+  .bgf::before{left:auto;width:min(58%,820px);
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    mask-image:linear-gradient(to right,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    -webkit-mask-composite:source-in;mask-composite:intersect}
+  .bgf.esq::before{left:0;right:auto;
+    -webkit-mask-image:linear-gradient(to left,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    mask-image:linear-gradient(to left,transparent 0%,#000 55%),linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}
+  .bgf.largo::before{width:100%;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 75%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 75%,transparent)}
+  .escura.bgf{--bg-op:.3}
+}
+@media (prefers-reduced-motion: reduce){.bgf::before{transform:none}}
+
 /* ===== Movimento: entrada no scroll ===== */
 .anim .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .anim .rv.in{opacity:1;transform:none}
@@ -276,7 +298,7 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
 </header>
 
 <main>
-<section class="abre escura faixa">
+<section class="abre escura faixa bgf" style="--bg:url(img/bg-cotacoes.jpg);--bg-pos:center">
   <div class="miolo">
     <div>
       <div class="rotulo">Calculadora de patrimônio</div>
@@ -370,7 +392,7 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
   </div>
 </section>
 
-<section class="licoes escura faixa" aria-label="O que os números ensinam">
+<section class="licoes escura faixa bgf" style="--bg:url(img/bg-quina.jpg);--bg-pos:center" aria-label="O que os números ensinam">
   <div class="miolo">
     <div class="rotulo">O que a sua simulação ensina</div>
     <h2 class="titulo">Lições em <em>reais</em>.</h2>
@@ -398,7 +420,7 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
   </div>
 </section>
 
-<section class="cta escura faixa">
+<section class="cta escura faixa bgf esq" style="--bg:url(img/bg-aperto.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div>
       <div class="rotulo">Do simulador ao plano</div>
@@ -723,6 +745,14 @@ th{font-weight:500;font-size:12px;color:var(--grafite)}
       });
     }, 1200);
   });
+})();
+
+/* Fundos: leve aproximação ao entrar na tela */
+(function(){
+  var els = document.querySelectorAll(".bgf");
+  if (!("IntersectionObserver" in window)) { els.forEach(function(e){ e.classList.add("vis"); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("vis"); io.unobserve(e.target); } }); }, {threshold:.1});
+  els.forEach(function(e){ io.observe(e); });
 })();
 </script>
 </body>
