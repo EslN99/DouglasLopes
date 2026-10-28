@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Cenário da semana, simulador de PGBL e perguntas frequentes sobre investimentos.">
+<meta name="description" content="Cenário econômico, educação financeira, simuladores e perguntas frequentes.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Conteúdo Douglas Lopes</title>
+<title>Conteúdos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500&family=Poppins:wght@300;400;500;700&display=swap">
@@ -479,6 +479,44 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 @media (min-width:760px){.fecho .miolo{grid-template-columns:1.2fr .8fr;align-items:end;gap:64px}}
 .menu a[aria-current="page"]{color:var(--ouro)}
 @media (min-width:1180px){.menu a[aria-current="page"]{color:var(--marfim);box-shadow:inset 0 -2px 0 var(--ouro)}}
+
+/* Reformulação de copy */
+.hero .assina{margin-top:22px;padding-top:16px;border-top:1px solid var(--linha);display:grid;gap:2px;font-size:13.5px;color:var(--grafite);max-width:44ch}
+.hero .assina b{font-weight:500;color:var(--tinta)}
+.situ .titulo{font-size:clamp(34px,8.4vw,68px)}
+.situ .dores li:first-child h3{color:var(--destaque-texto)}
+.prosa{display:grid;gap:16px;max-width:62ch;margin-top:22px}
+.prosa p{font-size:16.5px;line-height:1.7}
+.escura .prosa p{color:#D9D5CB}
+.frase{margin-top:28px;padding-left:18px;border-left:2px solid var(--ouro);font-size:clamp(18px,4.4vw,22px);line-height:1.45;max-width:40ch}
+.areas{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.area{background:var(--superficie);border:1px solid var(--linha);padding:24px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.area .a-n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--destaque-texto)}
+.area h3{margin:0;font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.area p{font-size:15px;color:var(--grafite)}
+.area ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.area li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:14px}
+.area li::before{content:"";width:8px;height:8px;border:1px solid var(--fio-ouro);margin-top:7px}
+@media (min-width:760px){.areas{grid-template-columns:1fr 1fr}.area{padding:32px}}
+@media (min-width:1080px){.areas.tres{grid-template-columns:repeat(3,1fr)}}
+.certs{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha)}
+.certs li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--linha)}
+.certs b{font-size:18px;font-weight:600}
+.certs span{font-size:15px;color:var(--grafite)}
+@media (min-width:760px){.certs li{grid-template-columns:200px 1fr;gap:24px;align-items:baseline}}
+.marcos{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha-escura)}
+.marcos li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--linha-escura)}
+.marcos b{font-size:20px;font-weight:600;color:var(--ouro);font-variant-numeric:tabular-nums}
+.marcos span{font-size:15.5px;color:#D9D5CB}
+@media (min-width:760px){.marcos li{grid-template-columns:140px 1fr;gap:24px;align-items:baseline}}
+.fee-box{border:1px solid var(--ouro);background:rgba(21,21,19,.82);padding:26px 22px;display:grid;gap:14px}
+.fee-box h3{margin:0;font-size:22px;font-weight:500}
+.fee-box ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.fee-box li{display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:15px}
+.fee-box li::before{content:"";width:12px;height:1.5px;background:var(--ouro);margin-top:12px}
+@media (min-width:760px){.fee-box{padding:36px}}
+.tr-grid{display:grid;gap:28px}
+@media (min-width:860px){.tr-grid{grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}}
 </style>
 </head>
 <body>
@@ -491,38 +529,36 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     </a>
     <nav class="menu" id="menu" aria-label="Páginas" hidden>
       <a href="index.html">Início <i class="seta"></i></a>
+      <a href="sobre.html">Minha trajetória <i class="seta"></i></a>
+      <a href="areas.html">Áreas de atuação <i class="seta"></i></a>
       <a href="como-trabalho.html">Como trabalho <i class="seta"></i></a>
-      <a href="sobre.html">Sobre <i class="seta"></i></a>
-      <a href="conteudo.html" aria-current="page">Conteúdo <i class="seta"></i></a>
-      <a href="calculadora.html">Calculadora <i class="seta"></i></a>
-      <a class="btn btn-ouro" href="#contato">Agendar uma conversa</a>
+      <a href="conteudo.html" aria-current="page">Conteúdos <i class="seta"></i></a>
+      <a class="btn btn-ouro" href="#contato">Agende uma conversa</a>
     </nav>
-    <a class="btn btn-ouro cta-topo" href="#contato">Fale comigo</a>
+    <a class="btn btn-ouro cta-topo" href="#contato">Agende uma conversa</a>
     <button class="menu-btn" id="menuBtn" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
   </div>
 </header>
 
 <main id="inicio">
 
-<!-- Topo -->
 <section id="hero" class="pg-topo escura faixa bgf" style="--bg:url(img/bg-cotacoes.jpg);--bg-pos:center">
   <div class="miolo">
-    <nav class="migalha" aria-label="Você está em"><a href="index.html">Início</a><span aria-hidden="true">/</span><span>Conteúdo</span></nav>
-    <div class="rotulo">Conteúdo</div>
-    <h1 class="titulo">Investimento em <em>português claro</em>.</h1>
-    <p class="apoio">Cenário da semana, simulador de PGBL e respostas diretas para as dúvidas mais comuns.</p>
+    <nav class="migalha" aria-label="Você está em"><a href="index.html">Início</a><span aria-hidden="true">/</span><span>Conteúdos</span></nav>
+    <div class="rotulo">Conteúdos</div>
+    <h1 class="titulo">Informação para <em>decidir melhor</em>.</h1>
+    <p class="apoio">Cenário econômico, educação financeira e ferramentas de simulação.</p>
   </div>
 </section>
 
-<!-- 9. Cenário -->
 <section id="cenario" class="clara faixa">
   <div class="miolo">
     <div class="cab">
       <div>
-        <div class="rotulo">Cenário em português claro</div>
-        <h2 class="titulo">Toda semana, <em>sem jargão</em>.</h2>
+        <div class="rotulo">Cenário econômico</div>
+        <h2 class="titulo">Cenário <em>em linguagem clara</em>.</h2>
       </div>
-      <p class="apoio">O mesmo resumo que meus clientes recebem, em versão aberta. Fatos e números, sem promessa.</p>
+      <p class="apoio">Leitura do cenário econômico e do que ele significa para quem investe. Fatos e números, sem promessa.</p>
     </div>
     <div class="conteudo-grid corpo">
       <article class="focus">
@@ -539,11 +575,11 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
         <a class="btn btn-linha" href="#contato">Receber no WhatsApp <i class="seta"></i></a>
       </article>
       <aside class="duvidas">
-        <h3>Investimento sem mistério</h3>
+        <h3>Educação financeira</h3>
         <a href="#faq-pgbl" data-abre="faq-pgbl">PGBL ou VGBL? <i class="seta"></i></a>
         <a href="#faq-isento" data-abre="faq-isento">Isento é sempre melhor? <i class="seta"></i></a>
-        <a href="#faq-gratis" data-abre="faq-gratis">Assessor é de graça? <i class="seta"></i></a>
-        <a href="#faq-banco" data-abre="faq-banco">E o gerente do banco? <i class="seta"></i></a>
+        <a href="#faq-gratis" data-abre="faq-gratis">Como o assessor é remunerado? <i class="seta"></i></a>
+        <a href="#faq-banco" data-abre="faq-banco">O que faz um assessor? <i class="seta"></i></a>
       </aside>
     </div>
 
@@ -566,33 +602,53 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   </div>
 </section>
 
-<!-- 11. FAQ -->
+<section id="ferramentas" class="escura faixa bgf" style="--bg:url(img/bg-cotacoes.jpg);--bg-pos:center;--bg-op:.22">
+  <div class="miolo calc-chamada">
+    <div>
+      <div class="rotulo">Ferramentas</div>
+      <h2 class="titulo">Simule cenários <em>de longo prazo</em>.</h2>
+      <p class="apoio" style="margin-top:18px">Compare prazos, aportes e retornos com referências como CDB, Tesouro Selic e poupança. Resultados hipotéticos, para apoiar a conversa.</p>
+      <ul class="calc-lista">
+        <li>Investimento inicial e aporte mensal</li>
+        <li>Prazo de 1 a 40 anos</li>
+        <li>Retorno esperado e imposto de renda</li>
+      </ul>
+      <a class="btn btn-ouro" href="calculadora.html" style="margin-top:28px">Abrir a calculadora <i class="seta"></i></a>
+    </div>
+    <figure class="calc-previa" aria-label="Exemplo hipotético: R$ 1.000 por mês durante 20 anos">
+      <figcaption><span>Exemplo hipotético</span>R$ 1.000 por mês, 20 anos</figcaption>
+      <div class="cp-linha"><div class="cp-top"><b>Total investido</b><span>R$ 240 mil</span></div><i style="width:30%;background:var(--cinza-post)"></i></div>
+      <div class="cp-linha"><div class="cp-top"><b>Poupança</b><span>R$ 462 mil</span></div><i style="width:57%;background:#6E6A62"></i></div>
+      <div class="cp-linha"><div class="cp-top"><b>Carteira a 12% a.a.</b><span>R$ 811 mil</span></div><i style="width:100%;background:var(--ouro)"></i></div>
+      <p class="cp-nota">Carteira com IR descontado. Simulação hipotética, sem garantia de resultado.</p>
+    </figure>
+  </div>
+</section>
+
 <section id="faq" class="sup faixa">
   <div class="miolo">
     <div class="rotulo">Dúvidas frequentes</div>
-    <h2 class="titulo">Perguntas <em>diretas</em>.</h2>
+    <h2 class="titulo">Perguntas <em>frequentes</em>.</h2>
     <div class="faq corpo">
-      <details id="faq-gratis"><summary>Assessor é de graça?</summary><p>Nenhum assessor trabalha de graça. Na comissão, o custo vem embutido nos produtos. No fee, você vê exatamente quanto paga.</p></details>
-      <details id="faq-banco"><summary>Meu gerente do banco já não cuida disso?</summary><p>O gerente costuma atender centenas de clientes, com metas de produto e prateleira fechada. Aqui o foco é o seu plano, com acompanhamento fixo.</p></details>
-      <details><summary>Assessoria é só para quem já é rico?</summary><p>Não. Quem começa cedo, com orientação, tende a errar menos. A conversa inicial mostra se faz sentido para você agora.</p></details>
-      <details><summary>Preciso tirar meu dinheiro do banco?</summary><p>Não há mudança obrigatória. Primeiro vem o diagnóstico. Qualquer movimentação é decidida com você e explicada antes.</p></details>
-      <details id="faq-pgbl"><summary>PGBL ou VGBL?</summary><p>PGBL serve para quem faz a declaração completa e quer deduzir até 12% da renda bruta. VGBL tende a servir para quem faz a simplificada ou já atingiu esse limite.</p></details>
-      <details id="faq-isento"><summary>Investimento isento é sempre melhor?</summary><p>Nem sempre. Um título tributado pode render mais que um isento depois do imposto. A comparação certa é sempre a do rendimento líquido.</p></details>
-      <details><summary>O atendimento é só presencial?</summary><p>O escritório fica em Presidente Prudente, mas as reuniões por vídeo e o resumo semanal no WhatsApp permitem atender em todo o Brasil.</p></details>
+      <details id="faq-banco"><summary>O que faz um assessor de investimento?</summary><p>O assessor de investimento atua vinculado a uma instituição intermediária, como a XP Investimentos, orientando o cliente nas decisões de investimento e acompanhando a estratégia ao longo do tempo. Toda decisão é sempre do cliente.</p></details>
+      <details id="faq-gratis"><summary>Como o assessor é remunerado?</summary><p>Minha atuação é direcionada ao modelo fee-based, com custo da assessoria previamente estabelecido. As condições, a base de cobrança e o tratamento das remunerações dos produtos são apresentados individualmente, conforme as regras aplicáveis.</p></details>
+      <details><summary>Preciso transferir todos os meus investimentos?</summary><p>Não. O primeiro passo é conhecer seu patrimônio e seus objetivos. Qualquer movimentação é avaliada e decidida em conjunto, com as explicações necessárias.</p></details>
+      <details><summary>A partir de qual patrimônio faz sentido?</summary><p>Depende dos seus objetivos e do momento de vida. A conversa inicial ajuda a entender se a assessoria faz sentido para você agora.</p></details>
+      <details id="faq-pgbl"><summary>PGBL ou VGBL?</summary><p>PGBL costuma ser indicado para quem faz a declaração completa e quer deduzir até 12% da renda bruta tributável. VGBL tende a servir para quem faz a simplificada ou já atingiu esse limite.</p></details>
+      <details id="faq-isento"><summary>Investimento isento é sempre melhor?</summary><p>Nem sempre. Um título tributado pode render mais que um isento depois do imposto. A comparação adequada é a do rendimento líquido, no mesmo prazo.</p></details>
+      <details><summary>O atendimento é só presencial?</summary><p>O escritório fica em Presidente Prudente, e as reuniões por vídeo permitem atender clientes em todo o Brasil.</p></details>
     </div>
   </div>
 </section>
 
-<!-- Fechamento -->
 <section id="contato" class="fecho escura faixa bgf" style="--bg:url(img/bg-assinatura.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div>
-      <div class="rotulo">Primeira conversa</div>
-      <h2 class="titulo">Vamos olhar <em>seu cenário</em>?</h2>
-      <p class="apoio" style="margin-top:18px">Conversa sem compromisso, presencial em Presidente Prudente ou por vídeo.</p>
+      <div class="rotulo">Vamos conversar sobre seus objetivos?</div>
+      <h2 class="titulo">Uma conversa sem compromisso, <em>presencial ou por vídeo</em>.</h2>
     </div>
     <div class="acoes">
-      <a class="btn btn-ouro" href="https://wa.me/5518996764001?text=Ol%C3%A1%2C%20Douglas.%20Quero%20agendar%20uma%20conversa." target="_blank" rel="noopener">Falar no WhatsApp <i class="seta"></i></a>
+      <a class="btn btn-ouro" href="https://wa.me/5518996764001?text=Ol%C3%A1%2C%20Douglas.%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Agende uma conversa <i class="seta"></i></a>
       <a class="btn btn-linha" href="index.html#contato">Outros contatos</a>
     </div>
   </div>
@@ -693,9 +749,9 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* ===== Movimento ===== */
 (function(){
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var RV = ".rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
-  var ST = ".entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
-  var FX = ".entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
+  var RV = ".frase,.fee-box,.assina,.rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
+  var ST = ".areas,.certs,.marcos,.entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
+  var FX = ".area,.entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
   var FXROW = ".dores li,.temas > div,.faq details,.duvidas a,.trajeto li,.perfil li";
 
   document.querySelectorAll(FX).forEach(function(el){ el.classList.add("fx"); });

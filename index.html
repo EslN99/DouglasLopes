@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Douglas Lopes, assessor de investimento e planejador financeiro CFP® em Presidente Prudente (SP).">
+<meta name="description" content="Douglas Lopes, assessor de investimento e planejador financeiro CFP®. XP Investimentos e Ello Investimentos.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Douglas Lopes Assessoria</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,7 +98,7 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* Hero */
 .hero .miolo{display:grid;gap:36px;padding-block:44px 0}
 .hero-txt{min-width:0}
-.hero .titulo{font-size:clamp(36px,8.6vw,72px)}
+.hero .titulo{font-size:clamp(34px,8.2vw,56px)}
 .acoes{display:grid;gap:12px;margin-top:32px}
 .hero-foto{position:relative;margin-inline:calc(-1 * var(--gl)) calc(-1 * var(--gr))}
 .hero-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.06)}
@@ -479,6 +479,44 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 @media (min-width:760px){.fecho .miolo{grid-template-columns:1.2fr .8fr;align-items:end;gap:64px}}
 .menu a[aria-current="page"]{color:var(--ouro)}
 @media (min-width:1180px){.menu a[aria-current="page"]{color:var(--marfim);box-shadow:inset 0 -2px 0 var(--ouro)}}
+
+/* Reformulação de copy */
+.hero .assina{margin-top:22px;padding-top:16px;border-top:1px solid var(--linha);display:grid;gap:2px;font-size:13.5px;color:var(--grafite);max-width:44ch}
+.hero .assina b{font-weight:500;color:var(--tinta)}
+.situ .titulo{font-size:clamp(34px,8.4vw,68px)}
+.situ .dores li:first-child h3{color:var(--destaque-texto)}
+.prosa{display:grid;gap:16px;max-width:62ch;margin-top:22px}
+.prosa p{font-size:16.5px;line-height:1.7}
+.escura .prosa p{color:#D9D5CB}
+.frase{margin-top:28px;padding-left:18px;border-left:2px solid var(--ouro);font-size:clamp(18px,4.4vw,22px);line-height:1.45;max-width:40ch}
+.areas{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.area{background:var(--superficie);border:1px solid var(--linha);padding:24px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.area .a-n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--destaque-texto)}
+.area h3{margin:0;font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.area p{font-size:15px;color:var(--grafite)}
+.area ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.area li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:14px}
+.area li::before{content:"";width:8px;height:8px;border:1px solid var(--fio-ouro);margin-top:7px}
+@media (min-width:760px){.areas{grid-template-columns:1fr 1fr}.area{padding:32px}}
+@media (min-width:1080px){.areas.tres{grid-template-columns:repeat(3,1fr)}}
+.certs{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha)}
+.certs li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--linha)}
+.certs b{font-size:18px;font-weight:600}
+.certs span{font-size:15px;color:var(--grafite)}
+@media (min-width:760px){.certs li{grid-template-columns:200px 1fr;gap:24px;align-items:baseline}}
+.marcos{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha-escura)}
+.marcos li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--linha-escura)}
+.marcos b{font-size:20px;font-weight:600;color:var(--ouro);font-variant-numeric:tabular-nums}
+.marcos span{font-size:15.5px;color:#D9D5CB}
+@media (min-width:760px){.marcos li{grid-template-columns:140px 1fr;gap:24px;align-items:baseline}}
+.fee-box{border:1px solid var(--ouro);background:rgba(21,21,19,.82);padding:26px 22px;display:grid;gap:14px}
+.fee-box h3{margin:0;font-size:22px;font-weight:500}
+.fee-box ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.fee-box li{display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:15px}
+.fee-box li::before{content:"";width:12px;height:1.5px;background:var(--ouro);margin-top:12px}
+@media (min-width:760px){.fee-box{padding:36px}}
+.tr-grid{display:grid;gap:28px}
+@media (min-width:860px){.tr-grid{grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}}
 </style>
 </head>
 <body>
@@ -491,30 +529,30 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     </a>
     <nav class="menu" id="menu" aria-label="Páginas" hidden>
       <a href="index.html" aria-current="page">Início <i class="seta"></i></a>
+      <a href="sobre.html">Minha trajetória <i class="seta"></i></a>
+      <a href="areas.html">Áreas de atuação <i class="seta"></i></a>
       <a href="como-trabalho.html">Como trabalho <i class="seta"></i></a>
-      <a href="sobre.html">Sobre <i class="seta"></i></a>
-      <a href="conteudo.html">Conteúdo <i class="seta"></i></a>
-      <a href="calculadora.html">Calculadora <i class="seta"></i></a>
-      <a class="btn btn-ouro" href="#contato">Agendar uma conversa</a>
+      <a href="conteudo.html">Conteúdos <i class="seta"></i></a>
+      <a class="btn btn-ouro" href="#contato">Agende uma conversa</a>
     </nav>
-    <a class="btn btn-ouro cta-topo" href="#contato">Fale comigo</a>
+    <a class="btn btn-ouro cta-topo" href="#contato">Agende uma conversa</a>
     <button class="menu-btn" id="menuBtn" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
   </div>
 </header>
 
 <main id="inicio">
 
-<!-- 1. Hero -->
 <section class="hero clara faixa" id="hero">
   <div class="miolo">
     <div class="hero-txt">
-      <div class="rotulo">Presidente Prudente (SP) · desde 2006</div>
-      <h1 class="titulo">Seu patrimônio, <em>acompanhado</em> de perto.</h1>
-      <p class="manchete">Diagnóstico, plano e acompanhamento. <b>Sem o produto do dia</b>, em <b>português claro</b>.</p>
+      <div class="rotulo">Assessoria de investimentos e planejamento financeiro</div>
+      <h1 class="titulo">Experiência para orientar. <em>Proximidade para acompanhar.</em></h1>
+      <p class="manchete">Há mais de 20 anos no mercado financeiro, ajudando pessoas e famílias a tomar decisões de investimento com <b>planejamento</b>, <b>transparência</b> e visão de longo prazo.</p>
       <div class="acoes">
-        <a class="btn btn-ouro" href="#contato">Agendar uma conversa <i class="seta"></i></a>
-        <a class="btn btn-linha" href="como-trabalho.html">Como eu trabalho</a>
+        <a class="btn btn-ouro" href="#contato">Agende uma conversa <i class="seta"></i></a>
+        <a class="btn btn-linha" href="sobre.html">Conheça minha trajetória</a>
       </div>
+      <p class="assina"><b>Douglas Lopes</b><span>Assessor de investimento e planejador financeiro CFP®</span><span>XP Investimentos · Ello Investimentos</span></p>
     </div>
     <div class="hero-foto">
       <img src="img/retrato-sofa.jpg" alt="Douglas Lopes sentado no escritório, de terno escuro e camisa branca" width="1200" height="1799" fetchpriority="high">
@@ -523,146 +561,127 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
   </div>
 </section>
 
-<!-- 2. Credenciais -->
 <section class="creds escura faixa" aria-label="Credenciais">
   <div class="miolo">
     <ul>
       <li><span class="n">20 anos</span><span class="d">de mercado financeiro</span></li>
       <li><span class="n">CFP®</span><span class="d">planejador financeiro certificado</span></li>
-      <li><span class="n">C-Pro I</span><span class="d">certificação ANBIMA de investimentos</span></li>
-      <li><span class="n">ANCORD</span><span class="d">assessor credenciado</span></li>
-      <li><span class="n">FEE</span><span class="d">remuneração transparente</span></li>
+      <li><span class="n">Private</span><span class="d">experiência com alta renda</span></li>
+      <li><span class="n">R$ 1 bi</span><span class="d">em carteira atendida no segmento Private</span></li>
+      <li><span class="n">Top 10</span><span class="d">novos assessores do Brasil em 2026</span></li>
     </ul>
   </div>
 </section>
 
-<!-- 3. Problema -->
-<section class="clara faixa">
+<section class="situ clara faixa">
   <div class="miolo">
     <div class="cab">
       <div>
-        <div class="rotulo">Você já passou por isso?</div>
-        <h2 class="titulo">Muito produto. <em>Pouco plano.</em></h2>
+        <div class="rotulo">Momentos em que um plano faz diferença</div>
+        <h2 class="titulo">Você já passou <em>por isso?</em></h2>
       </div>
-      <p class="apoio">Boa parte do atendimento financeiro gira em torno de metas de venda.</p>
+      <p class="apoio">Situações comuns na vida de quem construiu patrimônio. Todas pedem a mesma coisa: clareza para decidir.</p>
     </div>
     <ul class="dores corpo">
-      <li><h3>Gerente novo a cada ano</h3><p>A relação recomeça do zero e ninguém conhece sua história.</p></li>
-      <li><h3>Oferta guiada por meta</h3><p>O produto indicado é o que precisa ser vendido no mês.</p></li>
-      <li><h3>Taxa que não aparece</h3><p>Custos embutidos que nunca ficam claros no extrato.</p></li>
+      <li><h3>Muito produto. Pouco planejamento.</h3><p>Investimentos acumulados ao longo dos anos, sem uma estratégia que conecte tudo.</p></li>
+      <li><h3>Patrimônio crescendo sem direção</h3><p>A renda aumenta, mas falta clareza sobre o próximo passo.</p></li>
+      <li><h3>Decisões guiadas pela notícia do dia</h3><p>Mudanças na carteira feitas pelo momento, e não pelos objetivos.</p></li>
+      <li><h3>Um evento que muda o cenário</h3><p>Venda de empresa ou imóvel, herança ou aposentadoria se aproximando.</p></li>
+      <li><h3>Imposto e sucessão para depois</h3><p>Temas importantes que acabam adiados por falta de orientação.</p></li>
+      <li><h3>Carteira difícil de entender</h3><p>Pouca clareza sobre riscos, prazos e o papel de cada investimento.</p></li>
     </ul>
   </div>
 </section>
 
-<!-- 3b. Entregas -->
-<section id="entregas" class="sup faixa">
-  <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">O que você recebe</div>
-        <h2 class="titulo">Entregas, <em>não promessas</em>.</h2>
-      </div>
-      <p class="apoio">Cada entrega tem formato e frequência definidos. Compare com o atendimento tradicional de banco.</p>
-    </div>
-    <div class="ent-cab" aria-hidden="true"><span>Entrega</span><span>No banco tradicional</span><span class="c-dl">Comigo</span></div>
-    <ul class="entregas corpo">
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">No início</span><h3>Diagnóstico completo</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Questionário de perfil padrão.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Patrimônio, renda, objetivos, dívidas, seguros e impostos levantados um a um.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">No início</span><h3>Plano por escrito</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Oferta do produto da campanha.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Investimentos, aposentadoria, proteção, imposto e sucessão num só documento.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Sempre</span><h3>Carteira sob medida</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Prateleira da própria instituição.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Plataforma aberta, carteira simples e cada escolha explicada.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Semanal</span><h3>Resumo do cenário</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Contato quando há meta para bater.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Focus e agenda da semana em português claro, no seu WhatsApp.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Mensal</span><h3>Leitura mensal da carteira</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Extrato com números soltos.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Conversa sobre o que puxou o resultado, o que atrapalhou e se algo muda.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Trimestral</span><h3>Reunião de cenário</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Reunião só quando você pede.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Vídeo sobre mercado e resultados, com espaço para perguntas.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Semestral</span><h3>Revisão do plano</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Plano esquecido depois da venda.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Objetivos, prazos e proteção revistos com você.</p></div>
-      </li>
-      <li class="entrega">
-        <div class="e-nome"><span class="e-quando">Sempre</span><h3>Mesmo assessor</h3></div>
-        <div class="e-banco"><span class="e-rot">No banco tradicional</span><p><span class="sr-only">Não: </span>Gerente novo a cada mudança de agência.</p></div>
-        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Quem fez o diagnóstico acompanha você por anos.</p></div>
-      </li>
-    </ul>
-    <div class="ent-fim">
-      <p>Sem pacote e sem meta de produto. <b>O mesmo assessor</b> do primeiro diagnóstico à décima revisão.</p>
-      <a class="btn btn-ouro" href="#contato">Quero esse acompanhamento <i class="seta"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- 9b. Calculadora -->
-<section id="calculadora" class="escura faixa bgf" style="--bg:url(img/bg-cotacoes.jpg);--bg-pos:center;--bg-op:.22">
-  <div class="miolo calc-chamada">
-    <div>
-      <div class="rotulo">Calculadora de patrimônio</div>
-      <h2 class="titulo">Aprenda <em>brincando</em> com os números.</h2>
-      <p class="apoio" style="margin-top:18px">Mude prazo, aporte e retorno. Compare com CDB, Tesouro Selic e poupança e veja o peso do tempo e do imposto.</p>
-      <ul class="calc-lista">
-        <li>Investimento inicial e aporte mensal</li>
-        <li>Prazo de 1 a 40 anos</li>
-        <li>Retorno esperado e imposto de renda</li>
-      </ul>
-      <a class="btn btn-ouro" href="calculadora.html" style="margin-top:28px">Abrir a calculadora <i class="seta"></i></a>
-    </div>
-    <figure class="calc-previa" aria-label="Exemplo: R$ 1.000 por mês durante 20 anos">
-      <figcaption><span>Exemplo</span>R$ 1.000 por mês, 20 anos</figcaption>
-      <div class="cp-linha"><div class="cp-top"><b>Você investiu</b><span>R$ 240 mil</span></div><i style="width:30%;background:var(--cinza-post)"></i></div>
-      <div class="cp-linha"><div class="cp-top"><b>Poupança</b><span>R$ 462 mil</span></div><i style="width:57%;background:#6E6A62"></i></div>
-      <div class="cp-linha"><div class="cp-top"><b>Carteira a 12% a.a.</b><span>R$ 811 mil</span></div><i style="width:100%;background:var(--ouro)"></i></div>
-      <p class="cp-nota">Carteira com IR descontado. Hipótese, não promessa.</p>
-    </figure>
-  </div>
-</section>
-
-<!-- Sobre curto -->
-<section class="sobre-curto quem clara faixa">
+<section id="relacao" class="quem escura faixa">
   <div class="miolo">
     <figure class="quem-foto" style="margin-block:0">
       <div class="ft"><img src="img/retrato-pb-busto.jpg" alt="Douglas Lopes em preto e branco, apoiado na mesa do escritório" width="900" height="1125" loading="lazy"></div>
     </figure>
     <div>
-      <div class="rotulo">Quem está por trás</div>
-      <h2 class="titulo">Vi os dois lados <em>do balcão</em>.</h2>
-      <p class="apoio" style="margin-top:20px">Vinte anos de mercado, da agência bancária à assessoria. Hoje na Ello Investimentos, vinculada à XP, em Presidente Prudente.</p>
-      <div class="acoes">
-        <a class="btn btn-ouro" href="sobre.html">Minha trajetória <i class="seta"></i></a>
-        <a class="btn btn-linha" href="como-trabalho.html">Como eu trabalho</a>
+      <div class="rotulo">Minha forma de atender</div>
+      <h2 class="titulo">Mais do que investimentos, <em>uma relação de confiança</em>.</h2>
+      <div class="prosa">
+        <p>Cada pessoa possui uma história, objetivos e necessidades diferentes. Por isso, acredito que boas decisões financeiras começam pela compreensão do patrimônio, das prioridades e dos planos de cada cliente.</p>
+        <p>Meu trabalho é oferecer orientação personalizada e acompanhamento próximo, conectando as oportunidades do mercado financeiro aos objetivos de cada investidor.</p>
+      </div>
+      <div class="acoes" style="margin-top:28px">
+        <a class="btn btn-ouro" href="sobre.html">Conheça minha trajetória <i class="seta"></i></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 12. Contato -->
+<section id="areas" class="clara faixa">
+  <div class="miolo">
+    <div class="cab">
+      <div>
+        <div class="rotulo">Áreas de atuação</div>
+        <h2 class="titulo">Como posso <em>ajudar</em>.</h2>
+      </div>
+      <p class="apoio">Investimentos, planejamento e proteção tratados em conjunto, com a estrutura da XP Investimentos e da Ello Investimentos.</p>
+    </div>
+    <ul class="areas corpo">
+      <li class="area"><span class="a-n">01</span><h3>Assessoria de investimentos</h3><p>Estratégias de alocação, diversificação e acompanhamento dos investimentos no Brasil e no exterior.</p></li>
+      <li class="area"><span class="a-n">02</span><h3>Planejamento financeiro</h3><p>Organização patrimonial e definição de estratégias para os diferentes momentos da vida.</p></li>
+      <li class="area"><span class="a-n">03</span><h3>Aposentadoria e previdência</h3><p>Planejamento de renda futura e avaliação de alternativas previdenciárias.</p></li>
+      <li class="area"><span class="a-n">04</span><h3>Proteção e sucessão patrimonial</h3><p>Apoio na identificação de necessidades de proteção e na organização da transmissão do patrimônio, em conjunto com especialistas quando necessário.</p></li>
+    </ul>
+    <div class="acoes" style="margin-top:28px"><a class="btn btn-linha" href="areas.html">Ver todas as áreas <i class="seta"></i></a></div>
+  </div>
+</section>
+
+<section id="entregas" class="sup faixa">
+  <div class="miolo">
+    <div class="cab">
+      <div>
+        <div class="rotulo">O que você recebe</div>
+        <h2 class="titulo">Um atendimento <em>completo</em>.</h2>
+      </div>
+      <p class="apoio">Como a assessoria se organiza ao longo da relação, em comparação a um modelo de atendimento tradicional.</p>
+    </div>
+    <div class="ent-cab" aria-hidden="true"><span>Entrega</span><span>Modelo tradicional</span><span class="c-dl">Comigo</span></div>
+    <ul class="entregas corpo">
+      <li class="entrega">
+        <div class="e-nome"><span class="e-quando">Início</span><h3>Diagnóstico completo</h3></div>
+        <div class="e-banco"><span class="e-rot">Modelo tradicional</span><p><span class="sr-only">Não: </span>Perfil definido por questionário.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Patrimônio, renda, objetivos, seguros e impostos analisados em conjunto.</p></div>
+      </li>
+      <li class="entrega">
+        <div class="e-nome"><span class="e-quando">Estratégia</span><h3>Plano integrado</h3></div>
+        <div class="e-banco"><span class="e-rot">Modelo tradicional</span><p><span class="sr-only">Não: </span>Recomendações pontuais, produto a produto.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Investimentos, aposentadoria, proteção e sucessão num só plano.</p></div>
+      </li>
+      <li class="entrega">
+        <div class="e-nome"><span class="e-quando">Estratégia</span><h3>Acesso amplo</h3></div>
+        <div class="e-banco"><span class="e-rot">Modelo tradicional</span><p><span class="sr-only">Não: </span>Opções concentradas em uma instituição.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Plataforma aberta, com soluções de diferentes instituições.</p></div>
+      </li>
+      <li class="entrega">
+        <div class="e-nome"><span class="e-quando">Acompanhamento</span><h3>Revisões periódicas</h3></div>
+        <div class="e-banco"><span class="e-rot">Modelo tradicional</span><p><span class="sr-only">Não: </span>Contato concentrado no momento da aplicação.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Revisões da carteira e do planejamento conforme os objetivos.</p></div>
+      </li>
+      <li class="entrega">
+        <div class="e-nome"><span class="e-quando">Transparência</span><h3>Remuneração clara</h3></div>
+        <div class="e-banco"><span class="e-rot">Modelo tradicional</span><p><span class="sr-only">Não: </span>Remuneração incluída no custo dos produtos.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Modelo fee-based, com custo da assessoria previamente estabelecido.</p></div>
+      </li>
+      <li class="entrega">
+        <div class="e-nome"><span class="e-quando">Relacionamento</span><h3>Longo prazo</h3></div>
+        <div class="e-banco"><span class="e-rot">Modelo tradicional</span><p><span class="sr-only">Não: </span>Atendimento que pode mudar ao longo do tempo.</p></div>
+        <div class="e-dl"><span class="e-rot">Comigo</span><p><span class="sr-only">Sim: </span>Relacionamento contínuo com o mesmo assessor.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <section id="contato" class="contato escura faixa bgf" style="--bg:url(img/bg-assinatura.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div>
-      <div class="rotulo">Primeira conversa</div>
-      <h2 class="titulo">Vamos olhar <em>seu cenário</em>?</h2>
-      <p class="apoio" style="margin-top:18px">Conversa sem compromisso para entender seu momento e explicar como funciona o acompanhamento.</p>
+      <div class="rotulo">Vamos conversar sobre seus objetivos?</div>
+      <h2 class="titulo">Uma conversa sem compromisso, <em>presencial ou por vídeo</em>.</h2>
+      <p class="apoio" style="margin-top:18px">Para conhecer seus objetivos e apresentar como funciona o acompanhamento.</p>
       <figure class="contato-foto">
         <img src="img/retrato-mesa-wide.jpg" alt="Douglas Lopes sorrindo, sentado à mesa do escritório" width="1100" height="879" loading="lazy">
       </figure>
@@ -787,9 +806,9 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* ===== Movimento ===== */
 (function(){
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var RV = ".rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
-  var ST = ".entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
-  var FX = ".entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
+  var RV = ".frase,.fee-box,.assina,.rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
+  var ST = ".areas,.certs,.marcos,.entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
+  var FX = ".area,.entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
   var FXROW = ".dores li,.temas > div,.faq details,.duvidas a,.trajeto li,.perfil li";
 
   document.querySelectorAll(FX).forEach(function(el){ el.classList.add("fx"); });

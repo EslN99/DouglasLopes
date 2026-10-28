@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Metodologia, rotina de acompanhamento e modelo de remuneração de Douglas Lopes, assessor de investimento CFP®.">
+<meta name="description" content="Metodologia em três etapas, acompanhamento de longo prazo e remuneração fee-based.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Como Douglas Lopes Trabalha</title>
+<title>Como Trabalho</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500&family=Poppins:wght@300;400;500;700&display=swap">
@@ -479,6 +479,44 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 @media (min-width:760px){.fecho .miolo{grid-template-columns:1.2fr .8fr;align-items:end;gap:64px}}
 .menu a[aria-current="page"]{color:var(--ouro)}
 @media (min-width:1180px){.menu a[aria-current="page"]{color:var(--marfim);box-shadow:inset 0 -2px 0 var(--ouro)}}
+
+/* Reformulação de copy */
+.hero .assina{margin-top:22px;padding-top:16px;border-top:1px solid var(--linha);display:grid;gap:2px;font-size:13.5px;color:var(--grafite);max-width:44ch}
+.hero .assina b{font-weight:500;color:var(--tinta)}
+.situ .titulo{font-size:clamp(34px,8.4vw,68px)}
+.situ .dores li:first-child h3{color:var(--destaque-texto)}
+.prosa{display:grid;gap:16px;max-width:62ch;margin-top:22px}
+.prosa p{font-size:16.5px;line-height:1.7}
+.escura .prosa p{color:#D9D5CB}
+.frase{margin-top:28px;padding-left:18px;border-left:2px solid var(--ouro);font-size:clamp(18px,4.4vw,22px);line-height:1.45;max-width:40ch}
+.areas{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.area{background:var(--superficie);border:1px solid var(--linha);padding:24px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.area .a-n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--destaque-texto)}
+.area h3{margin:0;font-size:20px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.area p{font-size:15px;color:var(--grafite)}
+.area ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.area li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:14px}
+.area li::before{content:"";width:8px;height:8px;border:1px solid var(--fio-ouro);margin-top:7px}
+@media (min-width:760px){.areas{grid-template-columns:1fr 1fr}.area{padding:32px}}
+@media (min-width:1080px){.areas.tres{grid-template-columns:repeat(3,1fr)}}
+.certs{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha)}
+.certs li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--linha)}
+.certs b{font-size:18px;font-weight:600}
+.certs span{font-size:15px;color:var(--grafite)}
+@media (min-width:760px){.certs li{grid-template-columns:200px 1fr;gap:24px;align-items:baseline}}
+.marcos{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha-escura)}
+.marcos li{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--linha-escura)}
+.marcos b{font-size:20px;font-weight:600;color:var(--ouro);font-variant-numeric:tabular-nums}
+.marcos span{font-size:15.5px;color:#D9D5CB}
+@media (min-width:760px){.marcos li{grid-template-columns:140px 1fr;gap:24px;align-items:baseline}}
+.fee-box{border:1px solid var(--ouro);background:rgba(21,21,19,.82);padding:26px 22px;display:grid;gap:14px}
+.fee-box h3{margin:0;font-size:22px;font-weight:500}
+.fee-box ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.fee-box li{display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:15px}
+.fee-box li::before{content:"";width:12px;height:1.5px;background:var(--ouro);margin-top:12px}
+@media (min-width:760px){.fee-box{padding:36px}}
+.tr-grid{display:grid;gap:28px}
+@media (min-width:860px){.tr-grid{grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}}
 </style>
 </head>
 <body>
@@ -491,128 +529,90 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
     </a>
     <nav class="menu" id="menu" aria-label="Páginas" hidden>
       <a href="index.html">Início <i class="seta"></i></a>
+      <a href="sobre.html">Minha trajetória <i class="seta"></i></a>
+      <a href="areas.html">Áreas de atuação <i class="seta"></i></a>
       <a href="como-trabalho.html" aria-current="page">Como trabalho <i class="seta"></i></a>
-      <a href="sobre.html">Sobre <i class="seta"></i></a>
-      <a href="conteudo.html">Conteúdo <i class="seta"></i></a>
-      <a href="calculadora.html">Calculadora <i class="seta"></i></a>
-      <a class="btn btn-ouro" href="#contato">Agendar uma conversa</a>
+      <a href="conteudo.html">Conteúdos <i class="seta"></i></a>
+      <a class="btn btn-ouro" href="#contato">Agende uma conversa</a>
     </nav>
-    <a class="btn btn-ouro cta-topo" href="#contato">Fale comigo</a>
+    <a class="btn btn-ouro cta-topo" href="#contato">Agende uma conversa</a>
     <button class="menu-btn" id="menuBtn" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><span></span></button>
   </div>
 </header>
 
 <main id="inicio">
 
-<!-- Topo -->
 <section id="hero" class="pg-topo clara faixa">
   <div class="miolo">
     <nav class="migalha" aria-label="Você está em"><a href="index.html">Início</a><span aria-hidden="true">/</span><span>Como trabalho</span></nav>
-    <div class="rotulo">Como eu trabalho</div>
-    <h1 class="titulo">Diagnóstico, plano e <em>acompanhamento</em>.</h1>
-    <p class="apoio">Metodologia do planejador CFP®, rotina fixa de acompanhamento e remuneração transparente.</p>
+    <div class="rotulo">Como trabalho</div>
+    <h1 class="titulo">O planejamento orienta. <em>O acompanhamento sustenta.</em></h1>
+    <p class="apoio">Uma forma de trabalho clara, do primeiro diagnóstico às revisões ao longo dos anos.</p>
   </div>
 </section>
 
-<!-- 4. Como eu trabalho -->
 <section id="como" class="escura faixa bgf" style="--bg:url(img/bg-aperto.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div class="cab">
       <div>
-        <div class="rotulo">Como eu trabalho</div>
-        <h2 class="titulo">Primeiro o plano. <em>Depois a carteira.</em></h2>
+        <div class="rotulo">Metodologia</div>
+        <h2 class="titulo">Conhecer, planejar, <em>acompanhar</em>.</h2>
       </div>
-      <p class="apoio">Metodologia do planejador CFP®, em três etapas. Investimentos, aposentadoria, seguros, impostos e sucessão no mesmo plano.</p>
+      <p class="apoio">Uma sequência clara, baseada na metodologia de planejamento financeiro CFP®.</p>
     </div>
     <div class="metodo corpo">
-      <article><div class="num">01</div><h3>Diagnóstico</h3><p>Patrimônio, renda, objetivos, dívidas, seguros e prazos. Entendo onde você está antes de sugerir qualquer coisa.</p></article>
-      <article><div class="num">02</div><h3>Plano</h3><p>Recomendação por escrito, carteira simples e plataforma aberta. Cada decisão vem com o raciocínio.</p></article>
-      <article><div class="num">03</div><h3>Acompanhamento</h3><p>A carteira é olhada de fato. Quando algo muda, você recebe o aviso e o motivo.</p></article>
+      <article><div class="num">01</div><h3>Conhecer</h3><p>Entender patrimônio, necessidades, objetivos e perfil de cada cliente.</p></article>
+      <article><div class="num">02</div><h3>Planejar</h3><p>Construir estratégias coerentes com os objetivos e horizontes de investimento.</p></article>
+      <article><div class="num">03</div><h3>Acompanhar</h3><p>Monitorar investimentos e revisar estratégias conforme necessário.</p></article>
     </div>
+    <p class="frase">O planejamento orienta as decisões. O acompanhamento mantém a estratégia conectada aos objetivos.</p>
   </div>
 </section>
 
-<!-- 5. Rotina -->
 <section id="rotina" class="clara faixa bgf largo mix" style="--bg:url(img/bg-torres.jpg);--bg-pos:center 30%">
   <div class="miolo">
-    <div class="rotulo">Rotina de acompanhamento</div>
-    <h2 class="titulo">Frequência vale mais que <em>intensidade</em>.</h2>
+    <div class="rotulo">Acompanhamento</div>
+    <h2 class="titulo">Relacionamento de <em>longo prazo</em>.</h2>
     <div class="rotina corpo">
-      <div><div class="freq">Semanal</div><div class="o-que">Resumo do cenário</div><p>O Relatório Focus e a agenda da semana explicados no seu WhatsApp.</p></div>
-      <div><div class="freq">Mensal</div><div class="o-que">Leitura da carteira</div><p>O que puxou o resultado e o que atrapalhou.</p></div>
-      <div><div class="freq">Trimestral</div><div class="o-que">Vídeo de cenário</div><p>Conversa por vídeo sobre mercado e resultados.</p></div>
-      <div><div class="freq">Semestral</div><div class="o-que">Revisão do plano</div><p>Objetivos, prazos e proteção revistos com você.</p></div>
+      <div><div class="freq">Cenário</div><div class="o-que">Leitura do mercado</div><p>Comentários sobre economia e mercado em linguagem clara.</p></div>
+      <div><div class="freq">Carteira</div><div class="o-que">Revisões periódicas</div><p>Análise do que influenciou os resultados e se algo precisa mudar.</p></div>
+      <div><div class="freq">Reuniões</div><div class="o-que">Presenciais ou por vídeo</div><p>Conversas sobre cenário, resultados e próximos passos.</p></div>
+      <div><div class="freq">Planejamento</div><div class="o-que">Revisão do plano</div><p>Objetivos e prazos revistos quando a vida muda.</p></div>
     </div>
+    <p class="ressalva" style="color:var(--grafite);margin-top:28px">A frequência de contatos e revisões é combinada com cada cliente.</p>
   </div>
 </section>
 
-<!-- 6. Fee x comissão -->
-<section id="transparencia" class="escura faixa bgf" style="--bg:url(img/bg-nota.jpg);--bg-pos:center 35%">
+<section id="transparencia" class="escura faixa bgf" style="--bg:url(img/bg-assinatura.jpg);--bg-pos:center 35%">
   <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">Transparência</div>
-        <h2 class="titulo">Você sabe quanto paga. <em>E por quê.</em></h2>
+    <div class="rotulo">Remuneração</div>
+    <h2 class="titulo">Transparência também faz parte <em>do relacionamento</em>.</h2>
+    <div class="tr-grid corpo">
+      <div class="prosa" style="margin-top:0">
+        <p>Acredito que o cliente deve compreender não apenas onde investe, mas também como funciona a remuneração pelo serviço de assessoria.</p>
+        <p>Por isso, minha atuação é direcionada ao modelo de remuneração fixa (fee-based), no qual o custo da assessoria é previamente estabelecido, proporcionando maior previsibilidade e transparência.</p>
       </div>
-      <p class="apoio">Existem dois jeitos de remunerar um assessor. Entender a diferença ajuda a avaliar qualquer recomendação.</p>
-    </div>
-    <div class="compara corpo">
-      <div>
-        <span class="tag">Modelo mais comum</span>
-        <h3>Comissão</h3>
+      <div class="fee-box">
+        <h3>Modelo fee-based</h3>
         <ul>
-          <li>Remuneração embutida nos produtos.</li>
-          <li>Custo raramente visível no extrato.</li>
-          <li>Alguns produtos remuneram mais que outros.</li>
-          <li>Mais movimentação pode gerar mais receita.</li>
-        </ul>
-      </div>
-      <div class="fee">
-        <span class="tag">Como eu trabalho</span>
-        <h3>Fee</h3>
-        <ul>
-          <li>Taxa combinada e visível desde o início.</li>
-          <li>Ganho igual, qualquer que seja o produto.</li>
-          <li>Plataforma aberta, sem prateleira única.</li>
-          <li>Interesse na carteira certa por anos.</li>
+          <li>Custo da assessoria definido antes do início.</li>
+          <li>Maior previsibilidade para o cliente.</li>
+          <li>Condições apresentadas individualmente e por escrito.</li>
         </ul>
       </div>
     </div>
-    <p class="ressalva">Condições e percentuais apresentados na primeira conversa, por escrito.</p>
+    <p class="ressalva">As condições, a base de cobrança e o tratamento das remunerações dos produtos são apresentados individualmente, conforme as regras aplicáveis.</p>
   </div>
 </section>
 
-<!-- 7. Além do investimento -->
-<section class="sup faixa">
-  <div class="miolo">
-    <div class="cab">
-      <div>
-        <div class="rotulo">Planejamento completo</div>
-        <h2 class="titulo">Além do <em>investimento</em>.</h2>
-      </div>
-      <p class="apoio">As dúvidas do dia a dia entram no mesmo plano. Quando o assunto pede outro especialista, aciono o parceiro certo.</p>
-    </div>
-    <div class="temas corpo">
-      <div><span class="chave">Aposentadoria</span><h3>Quanto você precisa ter</h3><p>Meta, prazo e caminho para chegar lá.</p></div>
-      <div><span class="chave">Imposto</span><h3>Pagar o devido, não mais</h3><p>PGBL, VGBL, tabelas e escolhas de fim de ano.</p></div>
-      <div><span class="chave">Sucessão</span><h3>Patrimônio organizado</h3><p>Planejamento para a próxima geração.</p></div>
-      <div><span class="chave">Proteção</span><h3>Seguro não é investimento</h3><p>Cobertura certa para a família, pelo custo justo.</p></div>
-      <div><span class="chave">Dívida e crédito</span><h3>Antecipar ou manter?</h3><p>Financiamento, consórcio e crédito comparados com números.</p></div>
-      <div><span class="chave">Exterior</span><h3>Proteção em outra moeda</h3><p>Quando faz sentido investir fora do Brasil.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Fechamento -->
 <section id="contato" class="fecho escura faixa bgf" style="--bg:url(img/bg-assinatura.jpg);--bg-pos:center 40%">
   <div class="miolo">
     <div>
-      <div class="rotulo">Primeira conversa</div>
-      <h2 class="titulo">Vamos olhar <em>seu cenário</em>?</h2>
-      <p class="apoio" style="margin-top:18px">Conversa sem compromisso, presencial em Presidente Prudente ou por vídeo.</p>
+      <div class="rotulo">Vamos conversar sobre seus objetivos?</div>
+      <h2 class="titulo">Uma conversa sem compromisso, <em>presencial ou por vídeo</em>.</h2>
     </div>
     <div class="acoes">
-      <a class="btn btn-ouro" href="https://wa.me/5518996764001?text=Ol%C3%A1%2C%20Douglas.%20Quero%20agendar%20uma%20conversa." target="_blank" rel="noopener">Falar no WhatsApp <i class="seta"></i></a>
+      <a class="btn btn-ouro" href="https://wa.me/5518996764001?text=Ol%C3%A1%2C%20Douglas.%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Agende uma conversa <i class="seta"></i></a>
       <a class="btn btn-linha" href="index.html#contato">Outros contatos</a>
     </div>
   </div>
@@ -713,9 +713,9 @@ section[id]{scroll-margin-top:calc(var(--topo) + env(safe-area-inset-top,0px))}
 /* ===== Movimento ===== */
 (function(){
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var RV = ".rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
-  var ST = ".entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
-  var FX = ".entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
+  var RV = ".frase,.fee-box,.assina,.rotulo,.titulo,.apoio,.manchete,.acoes,.hero-foto,.quem-foto,.contato-foto,.sim,.form,.ressalva,.siglas,.calc-previa,.painel,.resultado,.grafico,.compar,.focus-top,.aviso,.ent-cab,.ent-fim";
+  var ST = ".areas,.certs,.marcos,.entregas,.creds ul,.dores,.metodo,.rotina,.compara,.temas,.conteudo-grid,.perfis,.perfil ul,.faq,.dados,.calc-lista,.duvidas,.licoes-grid,.cards,.cta ul,.trajeto,.focus dl";
+  var FX = ".area,.entrega,.creds li,.metodo article,.compara > div,.focus,.perfil,.calc-previa,.licao,.card,.duvidas";
   var FXROW = ".dores li,.temas > div,.faq details,.duvidas a,.trajeto li,.perfil li";
 
   document.querySelectorAll(FX).forEach(function(el){ el.classList.add("fx"); });
