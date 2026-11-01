@@ -22,10 +22,9 @@ Link da bio: `https://<usuario>.github.io/DouglasLopes/links/`
 
 ## Pendências
 
-* Confirmar instituição e categoria do prêmio de 2026 antes de publicar.
 * Validar com o compliance a citação ao Bradesco, ao segmento Private e ao valor de carteira.
 
-* Logo definitivo (hoje é o monograma DL provisório). Pela Resolução CVM 178, art. 24, §1º, logo próprio exige a XP identificada com no mínimo igual destaque.
+* Logo definitivo, escolha do Douglas (hoje é o monograma DL provisório). Pela Resolução CVM 178, art. 24, §1º, logo próprio exige a XP identificada com no mínimo igual destaque.
 * Contato da ouvidoria da XP no rodapé (hoje aponta para xpi.com.br).
 * Página com a relação de assessores (Resolução CVM 178, art. 24, IV), se aplicável à Ello.
 * Texto legal validado pelo compliance da XP e da Ello.
