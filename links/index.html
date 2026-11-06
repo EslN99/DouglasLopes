@@ -26,14 +26,15 @@ p{margin:0}
 .col{max-width:440px;margin-inline:auto;padding-block:32px;display:grid;gap:24px}
 
 /* Cabeçalho */
-.topo{display:flex;align-items:center;gap:16px}
-.foto{position:relative;flex:none;width:76px;height:76px}
+.topo{display:flex;align-items:center;gap:20px}
+.foto{position:relative;flex:none;width:104px;height:104px}
 .foto img{display:block;width:100%;height:100%;object-fit:cover}
-.foto::before,.foto::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--ouro)}
+.foto::before,.foto::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--ouro)}
 .foto::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
 .foto::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
-.topo h1{margin:0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.15;letter-spacing:-.02em}
-.topo p{font-size:13px;color:var(--cinza);margin-top:6px;line-height:1.4}
+.topo h1{margin:0;font-family:var(--display);font-weight:600;font-size:30px;line-height:1.15;letter-spacing:-.02em}
+.topo p{font-size:14.5px;color:var(--cinza);margin-top:6px;line-height:1.4}
+.topo p.inst{margin-top:4px;color:var(--ouro);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
 
 /* Links */
 .links{display:grid;gap:10px}
@@ -73,7 +74,8 @@ p{margin:0}
     <div class="foto"><img src="img/avatar.jpg" alt="Douglas Lopes" width="640" height="640"></div>
     <div>
       <h1>Douglas Lopes</h1>
-      <p>Assessor de investimento e planejador financeiro CFP®. Ello Investimentos, Presidente Prudente (SP).</p>
+      <p>Assessor de investimento e planejador financeiro CFP®</p>
+      <p class="inst">XP Investimentos · Brasil</p>
     </div>
   </header>
 
@@ -84,10 +86,10 @@ p{margin:0}
     <a class="lk" href="../calculadora.html">
       <span><b>Calculadora de patrimônio</b><small>Compare com CDB, Tesouro e poupança</small></span><i class="seta"></i>
     </a>
-    <a class="lk" href="../conteudo.html">
+    <a class="lk" href="../conteudo.html#cenario">
       <span><b>PGBL: ainda dá tempo?</b><small>Simule o imposto que dá para adiar</small></span><i class="seta"></i>
     </a>
-    <a class="lk" href="../">
+    <a class="lk" href="../index.html">
       <span><b>Conheça meu trabalho</b><small>Como trabalho, trajetória e contato</small></span><i class="seta"></i>
     </a>
   </nav>
